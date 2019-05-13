@@ -1,7 +1,4 @@
-<%@ page import="dao.deptDao" %>
-<%@ page import="dao.deptDaoImpl" %>
-<%@ page import="domain.Dept" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Jing
   Date: 2019/4/6
@@ -13,9 +10,8 @@
 <html>
 <head>
     <link href="css/head.css" rel="stylesheet" type="text/css">
+    <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
-<script type="text/javascript" defer="defer"
-        src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js"></script>
 <body>
 <h5>${xiaoxi}</h5>
 <div id="header">
@@ -112,28 +108,41 @@
     </div>
 </div>
 <div id="section">
+    <!--搜索栏-->
+    <div class="select">
+        <center>
+            <br><br>
+            <form action="employeeSelectServlet" method="post">
+                <input type="text" name="loginname" placeholder="请输入要查找的员工" class="loginname">
+                <input type="submit" value="搜索" class="submit">
+            </form>
+        </center>
+    </div>
+    <br><br>
+    <!--显示列表-->
     <center>
-        <h4>添加信息</h4>
-        <form action="deptRegisterServlet" method="post">
-            <table>
-                <!--登录名-->
-                <tr>
-                    <td>部门名称:</td>
-                    <td><input type="text" name="name"></td>
-                </tr>
-                <!--描述-->
-                <tr>
-                    <td>部门描述:</td>
-                    <td><input type="textarea" name="remark"></td>
-                </tr>
-                <tr>
-                    <td>
-
-                        <input type="submit" value="确定">
-                    </td>
-                </tr>
-            </table>
-        </form>
+        <table class="gridtable">
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>部门</th>
+                <th>岗位</th>
+                <th>操作</th>
+            </tr>
+            <c:forEach var="u" items="${findall}">
+                <form action="employeeChangeJobServlet" method="post">
+                    <tr>
+                        <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
+                        <td><input type="text" value="${u.name}" name="name" size="3"></td>
+                        <td><input type="text" value="${u.dept}" name="dept" size="10"></td>
+                        <td><input type="text" value="${u.job}" name="job" size="10"></td>
+                        <td>
+                            <input type="submit" value="调岗"/>
+                        </td>
+                    </tr>
+                </form>
+            </c:forEach>
+        </table>
     </center>
 </div>
 </body>

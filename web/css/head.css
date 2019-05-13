@@ -1,71 +1,69 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px auto;
+    padding:0px;
+    box-sizing: border-box;
 }
-
+a{
+    text-decoration: none;
+}
 /*父盒子*/
 #baba {
     width: 100%;
     height: 100%;
     position: relative;
 }
-
 /*系统头部样式*/
 #header {
-    background-color: black;
+    /*background-color: #121415;*/
+    background-color: #53bebd;
     color: white;
     text-align: left;
-    height: 7%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 20px;
-    line-height: 40px;
+    /*height: 80px;*/
+    height: 10%;
+    padding:0px 30px;
 }
-
 #header > h2 {
     display: inline-block;
+    line-height: 78px;
 }
-
 /*右侧返回首页和退出登录样式*/
 #header .loginout, #header .reindex {
     color: white;
     float: right;
-    margin-right: 3px;
+    display: inline-block;
+    margin:25px 15px;
     cursor: pointer;
+    transition: all .2s;
 }
-
+#header .loginout:hover, #header .reindex:hover{
+    color:#53bebd;
+}
 /*菜单左侧样式*/
 #nav {
     line-height: 30px;
     background-color: #eeeeee;
-    height: 93%;
-    width: 8%;
+    /*height: 93%;*/
+    height: 90%;
+    width: 10%;
     float: left;
-    padding: 1%;
 }
-
 /*菜单右侧样式*/
 #section {
     width: 90%;
     float: left;
-    height: 93%;
+    height: 90%;
 }
-
 /*菜单样式*/
 .dropbtn {
     color: white;
-    /*padding: 16px;*/
     font-size: 16px;
     border: none;
     cursor: pointer;
 }
-
 /*菜单样式--下拉列表*/
 .dropdown {
     position: relative;
-    display: inline-block;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -75,127 +73,68 @@
     box-shadow: silver;
     z-index: 99;
 }
-
 .dropdown-content input {
     color: black; /*用户列表、添加用户 颜色*/
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content input:hover {
     background-color: #f1f1f1 /*选中某个二级菜单式的颜色变化*/
     /*background-color: #BDEBEE;*/
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .dropdown:hover .dropbtn {
     background-color: #0f0f0f;
 }
-
-li {
-    list-style-type: none;
-}
-
-li:hover {
-    cursor: pointer;
-    background: white;
-    color: #FFF;
-}
-
-.public {
-    display: none;
-    position: relative;
-    border-bottom: 0;
-}
-
-.public li {
-    /*border-bottom: 1px solid;*/
-    color: #666;
-    background-color: #cccccc;
-}
-
-.public li:hover {
-    color: #FFF;
-}
-
-.score {
-    border-bottom: 0;
-    width: 8%;
-    margin: 40px auto;
-    text-align: center;
-}
-
-.score li {
-    height: 50px;
-    line-height: 25px;
-    text-align: center;
-}
-
-.score li:hover ol {
-    display: block;
-}
-
 body {
     font-size: 17px;
-    font-family: '微软雅黑';
+    font-family: '华文黑体';
 }
-
 li {
     list-style-type: none;
 }
-
-li:hover {
+.score li span{
+    display: block;
+    height:50px;
+    line-height: 50px;
+    padding-left:30px;
+    border-left: 4px solid #eee;
+}
+.score li:hover{
     cursor: pointer;
-    background: gray;
-    color: #FFF;
 }
-
-.public {
-    display: none;
-    position: relative;
-    left: 100px;
-    top: -26px;
-    /*border: 1px gray solid;*/
-    border-bottom: 0;
-}
-
-.public li {
-    color: #666;
-}
-
-.public li:hover {
-    color: #FFF;
-}
-
-.score {
-    border-bottom: 0;
-    width: 100px;
-    margin: 40px auto;
-}
-
-.score li {
-    height: 50px;
-    line-height: 25px;
-    text-align: center;
-}
-
-.score li:hover ol {
+.score li:hover .public{
     display: block;
 }
-
+.score li:hover span{
+    border-left: 4px solid #53bebd;
+    color:#53bebd;
+    background: #ddd;
+}
+.public{
+    position: relative;
+    border-bottom: 0;
+    padding-left: 40px;
+    display: none;
+    margin-top: 10px;
+}
+.public li {
+    color: #666;
+    height:30px;
+    transition: all .2s;
+    line-height: 30px;
+}
+.public li:hover .square{
+    color:#53bebd!important;
+    cursor: pointer;
+}
 .square {
     margin: 0;
     padding: 0;
     border: 1px solid transparent;
-    /*/ / 自定义边框 */
     outline: none;
     background-color: transparent;
 }
-
-
-
-

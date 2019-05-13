@@ -16,6 +16,6 @@ public interface employeeDao {
     ArrayList<Employee> findEmployeeAll();//查
 
     ArrayList findEmployeeName(String name);//通过名字查找
-//    ArrayList<Dept> findDept();
-//    ArrayList<Job> findJob();
+
+    ArrayList<Employee> findEmployeeJob();
 }

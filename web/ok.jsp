@@ -10,8 +10,8 @@
 
 <head>
     <link href="css/head.css" rel="stylesheet" type="text/css">
+    <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
 <div id="baba">
     <div id="header">
@@ -22,7 +22,7 @@
     <div id="nav">
         <div class="dropdown">
             <ul class="score">
-                <li>用户管理
+                <li><span>用户管理</span>
                     <ol class="public">
                         <li>
                             <form action="findAllServlet" method="post">
@@ -37,7 +37,7 @@
 
                     </ol>
                 </li>
-                <li>部门管理
+                <li><span>部门管理</span>
                     <ol class="public">
                         <li>
                             <form action="deptFindAllServlet" method="post">
@@ -51,7 +51,7 @@
                         </li>
                     </ol>
                 </li>
-                <li>职位管理
+                <li><span>职位管理</span>
                     <ol class="public">
                         <li>
                             <form action="jobFindAllServlet" method="post">
@@ -65,7 +65,7 @@
                         </li>
                     </ol>
                 </li>
-                <li>员工管理
+                <li><span>员工管理</span>
                     <ol class="public">
                         <li>
                             <form action="employeeFindAllServlet" method="post">
@@ -78,14 +78,14 @@
                             </form>
                         </li>
                         <li>
-                            <form action="aaa.jsp" method="post">
+                            <form action="employeeJobServlet" method="post">
                                 <input type="submit" value="员工岗位" class="square">
                             </form>
                         </li>
 
                     </ol>
                 </li>
-                <li>薪资管理
+                <li><span>薪资管理</span>
                     <ol class="public">
                         <li>
                             <form action="localPayFindAllServlet" method="post">

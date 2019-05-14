@@ -11,9 +11,9 @@ public interface deptDao {
 
     boolean DeptUpdate(String name, String remark, int id);//改
 
-    ArrayList<Dept> findDeptAll();//查
+    ArrayList<Dept> findDeptAll();//查所有
 
-    ArrayList findDeptName(String name);//通过部门名字查找
+    ArrayList findDeptByName(String name);//通过部门名字查找
 
      ArrayList<Dept> findNameAll();//显示部门名字，为添加岗位信息做准备
 

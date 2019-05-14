@@ -18,4 +18,6 @@ public interface employeeDao {
     ArrayList findEmployeeName(String name);//通过名字查找
 
     ArrayList<Employee> findEmployeeJob();
+
+    ArrayList<Employee> findEmployeeJobId(int id);
 }

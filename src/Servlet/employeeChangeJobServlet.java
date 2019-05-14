@@ -1,8 +1,11 @@
 package Servlet;
 
-import dao.deptDao;
-import dao.deptDaoImpl;
-import domain.User;
+import dao.employeeDao;
+import dao.employeeDaoImpl;
+import dao.jobDao;
+import dao.jobDaoImpl;
+import domain.Employee;
+import domain.Job;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,19 +15,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/deptSelectServlet")
-public class deptSelectServlet extends HttpServlet {
+//调岗servlet
+@WebServlet("/employeeChangeJobServlet")
+public class employeeChangeJobServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String name = request.getParameter("name");
-
-        deptDao deptDao = new deptDaoImpl();
-        ArrayList<User> list = deptDao.findDeptByName(name);
+        employeeDao employeeDao = new employeeDaoImpl();
+        String id = request.getParameter("id");
+        int employeeChangeJobId = Integer.parseInt(id);
+        ArrayList<Employee> list = employeeDao.findEmployeeJobId(employeeChangeJobId);
         request.setAttribute("findall", list);
-        request.getRequestDispatcher("/deptlist.jsp").forward(request, response);
+        request.getRequestDispatcher("/employeeChangeJobList.jsp").forward(request, response);
     }
+
 }

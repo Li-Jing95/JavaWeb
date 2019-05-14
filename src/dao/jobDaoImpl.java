@@ -7,6 +7,7 @@ import erp.JDBC;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class jobDaoImpl implements jobDao {
 
@@ -103,6 +104,26 @@ public class jobDaoImpl implements jobDao {
                 Job jobobj=new Job();
 //                jobobj.setId(rs.getInt("id"));
                 jobobj.setName(rs.getString("name"));
+                listjobname.add(jobobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listjobname;
+    }
+
+    @Override
+    public ArrayList<Job> findJobListByDeptId(Integer deptId) {
+        ArrayList<Job> listjobname = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where dept_id='" + deptId + "'");
+            while (rs.next()) {
+                Job jobobj = new Job();
+                jobobj.setId(rs.getInt("id"));
+                jobobj.setName(rs.getString("name"));
+                jobobj.setRemark(rs.getString("remark"));
                 listjobname.add(jobobj);
             }
             JDBC.Close();

@@ -154,4 +154,27 @@ public class employeeDaoImpl implements employeeDao {
         return list;
     }
 
+    @Override
+    public ArrayList<Employee> findEmployeeJobId(int id) {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,d.`name` AS dept,j.`name` AS job " +
+                    "FROM employee_inf AS e,dept_inf AS d,job_inf AS j " +
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.id='" + id + "'");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setId(rs.getInt("id"));
+                employeeobj.setName(rs.getString("name"));
+                employeeobj.setJob(rs.getString("job"));
+                employeeobj.setDept(rs.getString("dept"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }

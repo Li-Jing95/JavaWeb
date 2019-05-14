@@ -3,6 +3,7 @@ package dao;
 import domain.Job;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface jobDao {
     boolean JobAdd(Job deptobj);//增
@@ -14,5 +15,10 @@ public interface jobDao {
     ArrayList<Job> findJobAll();//查
 
     ArrayList findJobName(String name);//通过部门名字查找
+
     ArrayList<Job> findNameAll();
+
+    ArrayList<Job> findJobListByDeptId(Integer deptId);
+
+
 }

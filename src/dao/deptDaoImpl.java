@@ -73,7 +73,7 @@ public class deptDaoImpl implements deptDao {
     }
 
     @Override
-    public ArrayList findDeptName(String name) {
+    public ArrayList findDeptByName(String name) {
         ArrayList<Dept> listdeptname = new ArrayList<>();
         try {
             JDBC.getCon();

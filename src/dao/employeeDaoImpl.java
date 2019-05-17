@@ -185,7 +185,7 @@ public class employeeDaoImpl implements employeeDao {
     }
 
     @Override
-    public boolean employeeOkJobUpdate(int id,int dept_id, int job_id) {
+    public boolean employeeOkJobUpdate(int id, int dept_id, int job_id) {
         boolean flag = false;
         JDBC.getCon();
         String sql = "update employee_inf set " +
@@ -198,6 +198,28 @@ public class employeeDaoImpl implements employeeDao {
         }
         JDBC.Close();
         return flag;
+    }
+
+    @Override
+    public ArrayList<Employee> findManOrWomanAll() {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+//            ResultSet rs = JDBC.selectSql("SELECT e.sex ,COUNT(e.sex) AS count FROM employee_inf AS e GROUP BY sex;");
+            ResultSet rs = JDBC.selectSql("SELECT e.sex,(ROUND(COUNT(e.sex)/(SELECT COUNT(*)FROM employee_inf)*100,1)) AS count " +
+                    "FROM employee_inf AS e GROUP BY sex;");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setSex(rs.getString("sex"));
+                employeeobj.setCount(rs.getInt("count"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

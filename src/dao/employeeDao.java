@@ -22,4 +22,7 @@ public interface employeeDao {
     ArrayList<Employee> findEmployeeOkJobListAll();//员工岗位列表
 
     boolean employeeOkJobUpdate(int id,int dept_id,int job_id);
+
+    ArrayList<Employee> findManOrWomanAll();
+
 }

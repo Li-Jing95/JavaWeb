@@ -119,6 +119,15 @@
                     </li>
                 </ol>
             </li>
+            <li><span>统计功能</span>
+                <ol class="public">
+                    <li>
+                        <form action="manOrWomanServlet" method="post">
+                            <input type="submit" value="男女比例" class="square">
+                        </form>
+                    </li>
+                </ol>
+            </li>
         </ul>
     </div>
 </div>

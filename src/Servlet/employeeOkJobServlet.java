@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/employeeOkJobServlet")
 public class employeeOkJobServlet extends HttpServlet {
@@ -25,23 +24,22 @@ public class employeeOkJobServlet extends HttpServlet {
         int employeeOkJobId = Integer.parseInt(id);
         String name = request.getParameter("name");
         String dept = request.getParameter("brand");
-        int deptid=Integer.parseInt(dept);
+        int deptid = Integer.parseInt(dept);
         String job = request.getParameter("jobNameList");
-        int jobid=Integer.parseInt(job);
+        int jobid = Integer.parseInt(job);
 
         Employee employeeobj = new Employee();
         employeeobj.setId(employeeOkJobId);
         employeeobj.setName(name);
         employeeobj.setDept_id(deptid);
         employeeobj.setJob_id(jobid);
-        employeeobj.setJob_ostatus(1);
 
         employeeDao employeeDao = new employeeDaoImpl();
 
-        if (employeeDao.employeeOkAdd(employeeobj)) {
-            request.setAttribute("xiaoxi", "添加成功！");
-            request.getRequestDispatcher("/employeeOkJobListServlet").forward(request, response);
-        }else
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        if (employeeDao.employeeOkJobUpdate(employeeOkJobId, deptid, jobid)) {
+            request.setAttribute("xiaoxi", "更新成功！");
+            request.getRequestDispatcher("/employeeFindAllServlet").forward(request, response);
+        } else
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

@@ -1,7 +1,8 @@
 <%@ page import="dao.deptDao" %>
 <%@ page import="dao.deptDaoImpl" %>
 <%@ page import="domain.Dept" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%--
   Created by IntelliJ IDEA.
   User: Jing
   Date: 2019/4/6
@@ -11,28 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
-<script src="js/jQuery.main.js"></script>
 <body>
-<script type="text/javascript">
-    function getJobNameBySelectedDeptName(id) {//如果第一个下拉列表的值改变则调用此方法
-        if (id != null && "" != id && -1 != id) {
-            //通过ajax传入后台，把deptName数据传到后端
-            $.post("deptLinkJobServlet", {deptId: id}, function (res) {
-                var option;
-                option = "<option>" + "选择岗位" + "</option>";
-                $.each(res, function (i, n) {//循环，i为下标从0开始，n为集合中对应的第i个对象
-                    option += "<option value='" + n.id + "'>" + n.name + "</option>"
-                });
-                $("#jobNameList").html(option);//将循环拼接的字符串插入第二个下拉列表
-                $("#jobNameList").show();//把第二个下拉列表展示
-            });
-
-        } else {
-            $("#jobNameList").hide();
-        }
-    }
-</script>
 <h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">

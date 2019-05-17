@@ -16,7 +16,7 @@ public class employeeDaoImpl implements employeeDao {
     public boolean EmployeeAdd(Employee obj) {
         boolean flag = false;
         JDBC.getCon();
-        String s = "insert into employee_inf(name,sex,nation,polic,born,tel,email,education,card_id,createdate)" + " values(" +
+        String s = "insert into employee_inf(name,sex,nation,polic,born,tel,email,education,card_id,dept_id,job_id,createdate)" + " values(" +
                 "'" + obj.getName() +
                 "','" + obj.getSex() +
                 "','" + obj.getNation() +
@@ -26,6 +26,8 @@ public class employeeDaoImpl implements employeeDao {
                 "','" + obj.getEmail() +
                 "','" + obj.getEducation() +
                 "','" + obj.getCard_id() +
+                "','" + obj.getDept_id() +
+                "','" + obj.getJob_id() +
                 "','" + obj.getCreatedate() + "')";
         int i = JDBC.addUpdDel(s);
         if (i > 0) {
@@ -77,7 +79,9 @@ public class employeeDaoImpl implements employeeDao {
         ArrayList<Employee> employeelist = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT * from employee_inf");
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate " +
+                    "FROM employee_inf AS e , dept_inf AS d, job_inf AS j " +
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id;");
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setId(rs.getInt("id"));
@@ -90,6 +94,8 @@ public class employeeDaoImpl implements employeeDao {
                 employeeobj.setEmail(rs.getString("email"));
                 employeeobj.setEducation(rs.getString("education"));
                 employeeobj.setCard_id(rs.getString("card_id"));
+                employeeobj.setDept(rs.getString("dept"));
+                employeeobj.setJob(rs.getString("job"));
                 employeeobj.setCreatedate(rs.getString("createdate"));
                 employeelist.add(employeeobj);
             }
@@ -131,24 +137,6 @@ public class employeeDaoImpl implements employeeDao {
         return list;
     }
 
-    @Override
-    public ArrayList<Employee> findEmployeeJob() {
-        ArrayList<Employee> list = new ArrayList<>();
-        try {
-            JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name` FROM employee_inf as e;");
-            while (rs.next()) {
-                Employee employeeobj = new Employee();
-                employeeobj.setId(rs.getInt("id"));
-                employeeobj.setName(rs.getString("name"));
-                list.add(employeeobj);
-            }
-            JDBC.Close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
 
     @Override
     public ArrayList<Employee> findEmployeeJobId(int id) {
@@ -156,14 +144,14 @@ public class employeeDaoImpl implements employeeDao {
         try {
             JDBC.getCon();
             ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,d.`name` AS dept,j.`name` AS job " +
-                    "FROM employee_inf AS e,dept_inf AS d,job_inf AS j " +
+                    "FROM employee_inf AS e , dept_inf AS d, job_inf AS j " +
                     "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.id='" + id + "'");
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setId(rs.getInt("id"));
                 employeeobj.setName(rs.getString("name"));
-                employeeobj.setJob(rs.getString("job"));
                 employeeobj.setDept(rs.getString("dept"));
+                employeeobj.setJob(rs.getString("job"));
                 list.add(employeeobj);
             }
             JDBC.Close();
@@ -171,23 +159,6 @@ public class employeeDaoImpl implements employeeDao {
             e.printStackTrace();
         }
         return list;
-    }
-
-    @Override
-    public boolean employeeOkAdd(Employee obj) {
-        boolean flag = false;
-        JDBC.getCon();
-        String s = "insert into employeejob_inf(id,name,dept,job)" + " values(" +
-                "'" + obj.getId() +
-                "','" + obj.getName() +
-                "','" + obj.getDept_id() +
-                "','" + obj.getJob_id() + "')";
-        int i = JDBC.addUpdDel(s);
-        if (i > 0) {
-            flag = true;
-        }
-        JDBC.Close();
-        return flag;
     }
 
     @Override
@@ -211,6 +182,22 @@ public class employeeDaoImpl implements employeeDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public boolean employeeOkJobUpdate(int id,int dept_id, int job_id) {
+        boolean flag = false;
+        JDBC.getCon();
+        String sql = "update employee_inf set " +
+                "dept_id='" + dept_id +
+                "',job_id='" + job_id +
+                "' where id='" + id + "'";
+        int i = JDBC.addUpdDel(sql);
+        if (i > 0) {
+            flag = true;
+        }
+        JDBC.Close();
+        return flag;
     }
 
 }

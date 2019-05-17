@@ -12,7 +12,28 @@
     <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript" defer="defer"
-        src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js"></script>
+        src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js">
+</script>
+<script src="js/jQuery.main.js"></script>
+<script type="text/javascript">
+    function getJobNameBySelectedDeptName(id) {//如果第一个下拉列表的值改变则调用此方法
+        if (id != null && "" != id && -1 != id) {
+            //通过ajax传入后台，把deptName数据传到后端
+            $.post("deptLinkJobServlet", {deptId: id}, function (res) {
+                var option;
+                option = "<option>" + "选择岗位" + "</option>";
+                $.each(res, function (i, n) {//循环，i为下标从0开始，n为集合中对应的第i个对象
+                    option += "<option value='" + n.id + "'>" + n.name + "</option>"
+                });
+                $("#jobNameList").html(option);//将循环拼接的字符串插入第二个下拉列表
+                $("#jobNameList").show();//把第二个下拉列表展示
+            });
+
+        } else {
+            $("#jobNameList").hide();
+        }
+    }
+</script>
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>
@@ -77,18 +98,6 @@
                             <input type="submit" value="添加员工" class="square">
                         </form>
                     </li>
-                    <li>
-                        <form action="employeeOkJobListServlet" method="post">
-                            <input type="submit" value="员工岗位列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="employeeJobAddServlet" method="post">
-                            <input type="submit" value="员工岗位添加" class="square">
-                        </form>
-                    </li>
-
-
                 </ol>
             </li>
             <li><span>薪资管理</span>

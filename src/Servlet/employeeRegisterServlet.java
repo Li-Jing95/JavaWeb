@@ -22,13 +22,17 @@ public class employeeRegisterServlet extends HttpServlet {
         //获取表单传过来的数据
         String lname = request.getParameter("name");
         String sex = request.getParameter("sex");
-        String nation=request.getParameter("nation");
-        String polic=request.getParameter("polic");
-        String born=request.getParameter("born");
+        String nation = request.getParameter("nation");
+        String polic = request.getParameter("polic");
+        String born = request.getParameter("born");
         String tel = request.getParameter("tel");
         String email = request.getParameter("email");
         String education = request.getParameter("education");
         String card_id = request.getParameter("card_id");
+        String dept = request.getParameter("brand");
+        int deptid = Integer.parseInt(dept);
+        String job = request.getParameter("jobNameList");
+        int jobid = Integer.parseInt(job);
         String createdate = request.getParameter("createdate");
 
         Employee employeeobj = new Employee();
@@ -41,6 +45,8 @@ public class employeeRegisterServlet extends HttpServlet {
         employeeobj.setEmail(email);
         employeeobj.setEducation(education);
         employeeobj.setCard_id(card_id);
+        employeeobj.setDept_id(deptid);
+        employeeobj.setJob_id(jobid);
         employeeobj.setCreatedate(createdate);
 
         //将获取到的数据与数据库的数据进行判断

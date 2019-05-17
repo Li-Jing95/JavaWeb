@@ -1,9 +1,8 @@
 <%@ page import="domain.Dept" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="erp.JDBC" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.sql.SQLException" %>
-<%@ page import="domain.Job" %><%--
+<%@ page import="dao.deptDao" %>
+<%@ page import="dao.deptDaoImpl" %>
+<%--
   Created by IntelliJ IDEA.
   User: Jing
   Date: 2019/4/6
@@ -19,7 +18,7 @@
 <%@ include file="public.jsp" %>
 <div id="section">
     <div class="select">
-    <center>
+        <center>
             <h3>添加信息</h3>
             <form action="employeeRegisterServlet" method="post">
                 <table>
@@ -65,6 +64,30 @@
                         <td><input type="text" name="card_id" class="loginname"></td>
                     </tr>
                     <tr>
+                        <td align="center" class="submit">部门</td>
+                        <td>
+                            <select onchange="getJobNameBySelectedDeptName(this.value)" id="dept" name="brand"
+                                    class="loginname">
+                                <option>选择部门</option>
+                                <%
+                                    deptDao deptDao = new deptDaoImpl();
+                                    ArrayList<Dept> list = deptDao.findNameAll();
+                                    request.setAttribute("findall", list);
+                                %>
+                                <c:forEach var="deptItem" items="${findall}">
+                                    <option value="${deptItem.id}">${deptItem.name}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">岗位</td>
+                        <td>
+                            <select name="jobNameList" id="jobNameList" class="loginname">
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td align="center" class="submit">建档日期</td>
                         <td><input type="text" name="createdate" onfocus="WdatePicker()" class="loginname"></td>
                     </tr>
@@ -79,8 +102,8 @@
                     </div>
                 </tr>
             </form>
-    </center>
-</div>
+        </center>
+    </div>
 </div>
 </body>
 </html>

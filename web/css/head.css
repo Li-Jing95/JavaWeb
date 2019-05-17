@@ -33,7 +33,7 @@ a{
     display: inline-block;
     margin:25px 15px;
     cursor: pointer;
-    transition: all .2s;
+    /*transition: all .2s;*/
 }
 #header .loginout:hover, #header .reindex:hover{
     color:#53bebd;
@@ -124,7 +124,7 @@ li {
 .public li {
     color: #666;
     height:30px;
-    transition: all .2s;
+    /*transition: all .2s;*/
     line-height: 30px;
 }
 .public li:hover .square{

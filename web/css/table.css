@@ -1,21 +1,24 @@
 table.gridtable {
     font-family: verdana, arial, sans-serif;
     font-size: 11px;
-    color: #333333;/*字体颜色*/
+    color: #333333; /*字体颜色*/
     border-width: 1px;
     border-color: #53bebd;
     border-collapse: collapse;
 }
-table.gridtable tr{
+
+table.gridtable tr {
     background-color: #53bebd;
 }
-table.gridtable th{
+
+table.gridtable th {
     border-width: 1px;
     padding: 8px;
     border-style: solid;
     border-color: #ccc; /*th边框颜色*/
 }
-table.gridtable td{
+
+table.gridtable td {
     border-width: 1px;
     padding: 8px;
     border-style: solid;
@@ -23,23 +26,25 @@ table.gridtable td{
     background-color: #ffffff;
 }
 
-.select .loginname{
+.select .loginname {
     /*height:50px;*/
     /*width:400px;*/
     height: 40px;
     width: 300px;
-    border:2px solid #53bebd!important;
+    border: 2px solid #53bebd !important;
     padding-left: 30px;
 }
-.select .loginname:focus,.select .loginname:hover{
-    border:2px solid #53bebd!important;
+
+.select .loginname:focus, .select .loginname:hover {
+    border: 2px solid #53bebd !important;
 }
-.select .submit{
+
+.select .submit {
     /*height:50px;*/
     height: 40px;
-    width:80px;
+    width: 80px;
     background: #53bebd;
-    border:0px;
+    border: 0px;
     vertical-align: middle;
     margin-left: -10px;
     margin-top: 1px;
@@ -47,3 +52,12 @@ table.gridtable td{
     color: #fff;
     font-size: 18px;
 }
+
+.select.ok {
+    /*height: 40px;*/
+    /*width: 80px;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*position:absolute;left:100px; height:100px;*/
+}
+

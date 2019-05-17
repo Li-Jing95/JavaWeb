@@ -49,7 +49,7 @@ public class employeeDaoImpl implements employeeDao {
     }
 
     @Override
-    public boolean EmployeeUpdate(String name, String sex, String nation,String polic,String born,String tel, String email, String education, String card_id, String createdate, int id) {
+    public boolean EmployeeUpdate(String name, String sex, String nation, String polic, String born, String tel, String email, String education, String card_id, String createdate, int id) {
         boolean flag = false;
         JDBC.getCon();
         String sql = "update employee_inf set " +
@@ -136,15 +136,11 @@ public class employeeDaoImpl implements employeeDao {
         ArrayList<Employee> list = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,d.`name` AS dept,j.`name` AS job " +
-                    "FROM employee_inf AS e,dept_inf AS d,job_inf AS j " +
-                    "WHERE e.dept_id=d.id AND e.job_id=j.id;");
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name` FROM employee_inf as e;");
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setId(rs.getInt("id"));
                 employeeobj.setName(rs.getString("name"));
-                employeeobj.setJob(rs.getString("job"));
-                employeeobj.setDept(rs.getString("dept"));
                 list.add(employeeobj);
             }
             JDBC.Close();
@@ -175,6 +171,46 @@ public class employeeDaoImpl implements employeeDao {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public boolean employeeOkAdd(Employee obj) {
+        boolean flag = false;
+        JDBC.getCon();
+        String s = "insert into employeejob_inf(id,name,dept,job)" + " values(" +
+                "'" + obj.getId() +
+                "','" + obj.getName() +
+                "','" + obj.getDept_id() +
+                "','" + obj.getJob_id() + "')";
+        int i = JDBC.addUpdDel(s);
+        if (i > 0) {
+            flag = true;
+        }
+        JDBC.Close();
+        return flag;
+    }
+
+    @Override
+    public ArrayList<Employee> findEmployeeOkJobListAll() {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT * from employeejob_inf");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setId(rs.getInt("id"));
+                employeeobj.setName(rs.getString("name"));
+                employeeobj.setDept_id(rs.getInt("dept_id"));
+
+                employeeobj.setJob_id(rs.getInt("job_id"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

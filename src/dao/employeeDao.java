@@ -20,4 +20,8 @@ public interface employeeDao {
     ArrayList<Employee> findEmployeeJob();
 
     ArrayList<Employee> findEmployeeJobId(int id);
+
+    boolean employeeOkAdd(Employee obj);//添加员工岗位信息
+
+    ArrayList<Employee> findEmployeeOkJobListAll();//员工岗位列表
 }

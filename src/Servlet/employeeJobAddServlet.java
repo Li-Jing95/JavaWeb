@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/employeeJobServlet")
-public class employeeJobServlet extends HttpServlet {
+@WebServlet("/employeeJobAddServlet")
+public class employeeJobAddServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }

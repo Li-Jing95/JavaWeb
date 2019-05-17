@@ -5,6 +5,15 @@ public class Job {
     private String name;
     private String remark;
     private int jobpay;
+    private int dept_id;
+
+    public int getDept_id() {
+        return dept_id;
+    }
+
+    public void setDept_id(int dept_id) {
+        this.dept_id = dept_id;
+    }
 
     public Job() {
         super();

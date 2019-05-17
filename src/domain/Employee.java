@@ -20,8 +20,17 @@ public class Employee {
 
     private String jobpay;
     private String localpay;
+    private int job_ostatus;
 
     private int sum;
+
+    public int getJob_ostatus() {
+        return job_ostatus;
+    }
+
+    public void setJob_ostatus(int job_ostatus) {
+        this.job_ostatus = job_ostatus;
+    }
 
     public int getId() {
         return id;

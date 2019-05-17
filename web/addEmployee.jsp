@@ -14,162 +14,73 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<head>
-    <link href="css/head.css" rel="stylesheet" type="text/css">
-</head>
-<script type="text/javascript" defer="defer"
-        src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js"></script>
 <body>
 <h5>${xiaoxi}</h5>
-<div id="header">
-    <h2>企业人事管理系统</h2>
-    <a class="reindex" href="ok.jsp">返回首页</a>
-    <a class="loginout" href="login.jsp">退出登录</a>
-</div>
-<div id="nav">
-    <div class="dropdown">
-        <ul class="score">
-            <li><span>用户管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="findAllServlet" method="post">
-                            <input type="submit" value="用户列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addUser.jsp" method="post">
-                            <input type="submit" value="添加用户" class="square">
-                        </form>
-                    </li>
-
-                </ol>
-            </li>
-            <li><span>部门管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="deptFindAllServlet" method="post">
-                            <input type="submit" value="部门列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addDept.jsp" method="post">
-                            <input type="submit" value="添加部门" class="square">
-                        </form>
-                    </li>
-                </ol>
-            </li>
-            <li><span>职位管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="jobFindAllServlet" method="post">
-                            <input type="submit" value="职位列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addJob.jsp" method="post">
-                            <input type="submit" value="添加职位" class="square">
-                        </form>
-                    </li>
-                </ol>
-            </li>
-            <li><span>员工管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="employeeFindAllServlet" method="post">
-                            <input type="submit" value="员工列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addEmployee.jsp" method="post">
-                            <input type="submit" value="添加员工" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="employeeJobServlet" method="post">
-                            <input type="submit" value="员工岗位" class="square">
-                        </form>
-                    </li>
-
-                </ol>
-            </li>
-            <li><span>薪资管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="localPayFindAllServlet" method="post">
-                            <input type="submit" value="基本薪资" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="jobPayFindAllServlet" method="post">
-                            <input type="submit" value="岗位薪资" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="employeePayFindAllServlet" method="post">
-                            <input type="submit" value="员工薪资" class="square">
-                        </form>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-    </div>
-</div>
+<%@ include file="public.jsp" %>
 <div id="section">
+    <div class="select">
     <center>
-        <h4>添加信息</h4>
-        <form action="employeeRegisterServlet" method="post">
-            <table>
+            <h3>添加信息</h3>
+            <form action="employeeRegisterServlet" method="post">
+                <table>
+                    <tr>
+                        <td align="center" class="submit">姓名</td>
+                        <td><input type="text" name="name" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">性别</td>
+                        <td>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <input type="radio" name="sex" value="男">男
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <input type="radio" name="sex" value="女">女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">民族</td>
+                        <td><input type="text" name="nation" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">政治面貌</td>
+                        <td><input type="text" name="polic" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">出生日期</td>
+                        <td><input type="text" name="born" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">电话</td>
+                        <td><input type="text" name="tel" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">邮箱</td>
+                        <td><input type="text" name="email" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">学历</td>
+                        <td><input type="text" name="education" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">身份证号</td>
+                        <td><input type="text" name="card_id" class="loginname"></td>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">建档日期</td>
+                        <td><input type="text" name="createdate" onfocus="WdatePicker()" class="loginname"></td>
+                    </tr>
+
+                </table>
+                &nbsp;&nbsp;
                 <tr>
-                    <td>姓名:</td>
-                    <td><input type="text" name="name"></td>
+                    <div>
+                        <td>
+                            <input type="submit" value="确定" class="submit">
+                        </td>
+                    </div>
                 </tr>
-                <tr>
-                    <td>性别:</td>
-                    <td>
-                        <input type="radio" name="sex" value="男">男
-                        <input type="radio" name="sex" value="女">女
-                    </td>
-                </tr>
-                <tr>
-                    <td>民族:</td>
-                    <td><input type="text" name="nation"></td>
-                </tr>
-                <tr>
-                    <td>政治面貌:</td>
-                    <td><input type="text" name="polic"></td>
-                </tr>
-                <tr>
-                    <td>出生日期:</td>
-                    <td><input type="text" name="born"></td>
-                </tr>
-                <tr>
-                    <td>电话:</td>
-                    <td><input type="text" name="tel"></td>
-                </tr>
-                <tr>
-                    <td>邮箱:</td>
-                    <td><input type="text" name="email"></td>
-                </tr>
-                <tr>
-                    <td>学历:</td>
-                    <td><input type="text" name="education"></td>
-                </tr>
-                <tr>
-                    <td>身份证号:</td>
-                    <td><input type="text" name="card_id"></td>
-                </tr>
-                <tr>
-                    <td>建档日期:</td>
-                    <td><input type="text" name="createdate" onfocus="WdatePicker()"></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="确定">
-                    </td>
-                </tr>
-            </table>
-        </form>
+            </form>
     </center>
+</div>
 </div>
 </body>
 </html>

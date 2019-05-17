@@ -15,149 +15,60 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<%--%>
-<%--String path = request.getContextPath();--%>
-<%--String basePath = request.getScheme() + "://" + request.getServerName() + "://" + request.getServerPort() + path + "/";--%>
-<%--%>--%>
 <html>
-<head>
-    <link href="css/head.css" rel="stylesheet" type="text/css">
-</head>
-<script type="text/javascript" defer="defer"
-        src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js"></script>
 <body>
 <h5>${xiaoxi}</h5>
-<div id="header">
-    <h2>企业人事管理系统</h2>
-    <a class="reindex" href="ok.jsp">返回首页</a>
-    <a class="loginout" href="login.jsp">退出登录</a>
-</div>
-<div id="nav">
-    <div class="dropdown">
-        <ul class="score">
-            <li><span>用户管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="findAllServlet" method="post">
-                            <input type="submit" value="用户列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addUser.jsp" method="post">
-                            <input type="submit" value="添加用户" class="square">
-                        </form>
-                    </li>
-
-                </ol>
-            </li>
-            <li><span>部门管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="deptFindAllServlet" method="post">
-                            <input type="submit" value="部门列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addDept.jsp" method="post">
-                            <input type="submit" value="添加部门" class="square">
-                        </form>
-                    </li>
-                </ol>
-            </li>
-            <li><span>职位管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="jobFindAllServlet" method="post">
-                            <input type="submit" value="职位列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addJob.jsp" method="post">
-                            <input type="submit" value="添加职位" class="square">
-                        </form>
-                    </li>
-                </ol>
-            </li>
-            <li><span>员工管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="employeeFindAllServlet" method="post">
-                            <input type="submit" value="员工列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addEmployee.jsp" method="post">
-                            <input type="submit" value="添加员工" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="employeeJobServlet" method="post">
-                            <input type="submit" value="员工岗位" class="square">
-                        </form>
-                    </li>
-
-                </ol>
-            </li>
-            <li><span>薪资管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="localPayFindAllServlet" method="post">
-                            <input type="submit" value="基本薪资" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="jobPayFindAllServlet" method="post">
-                            <input type="submit" value="岗位薪资" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="employeePayFindAllServlet" method="post">
-                            <input type="submit" value="员工薪资" class="square">
-                        </form>
-                    </li>
-                </ol>
-            </li>
-        </ul>
-    </div>
-</div>
+<%@ include file="public.jsp" %>
 <div id="section">
-    <center>
-        <h4>添加信息</h4>
-        <form action="jobRegisterServlet" method="post">
-            <table>
-                <tr>
-                    <td>请选择部门:</td>
-                    <td>
-                        <select name="deptid">
-                            <option value="0">请选择</option>
-                            <%
-                                deptDao deptDao = new deptDaoImpl();
-                                ArrayList<Dept> list=deptDao.findNameAll();
-                                for (int i=0;i<list.size();i++){%>
-                                    <option value="<%=i+1%>"><%=list.get(i).getName()%></option>
-                            <%}%>
-                        </select>
-                    </td>
+    <div class="select">
+        <center>
+            &nbsp;&nbsp;
+            <h3>添加信息</h3>
+            &nbsp;
+            <form action="jobRegisterServlet" method="post">
+                <table>
+                    <tr>
+                        <td align="center" class="submit">选择部门</td>
+                        <td>
+                            <select name="deptid" class="loginname">
+                                <option>请选择</option>
+                                <%
+                                    deptDao deptDao = new deptDaoImpl();
+                                    ArrayList<Dept> list = deptDao.findNameAll();
+                                    request.setAttribute("findall", list);
+                                %>
+                                <c:forEach var="i" items="${findall}">
+                                    <option value="${i.id}">${i.name}</option>
+                                </c:forEach>
+                                <%--for (int i = 0; i < list.size(); i++) {%>--%>
+                                <%--<option value="<%=i+1%>"><%=list.get(i).getName()%>--%>
+                                <%--</option>--%>
+                                <%--<%}%>--%>
+                            </select>
+                        </td>
 
-                </tr>
-                <tr>
-                    <td>职位名称:</td>
-                    <td><input type="text" name="name"></td>
-                </tr>
+                    </tr>
+                    <tr>
+                        <td align="center" class="submit">职位名称</td>
+                        <td><input type="text" name="name" class="loginname"></td>
+                    </tr>
 
+                    <tr>
+                        <td align="center" class="submit">职位描述</td>
+                        <td><input type="textarea" name="remark" class="loginname"></td>
+                    </tr>
+                </table>
+                &nbsp;&nbsp;
                 <tr>
-                    <td>职位描述:</td>
-                    <td><input type="textarea" name="remark"></td>
+                    <div>
+                        <td>
+                            <input type="submit" value="确定" class="submit">
+                        </td>
+                    </div>
                 </tr>
-                <tr>
-                    <td>
-
-                        <input type="submit" value="确定">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </center>
+            </form>
+        </center>
+    </div>
 </div>
 </body>
 </html>

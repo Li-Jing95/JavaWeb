@@ -15,8 +15,10 @@ public class jobDaoImpl implements jobDao {
     public boolean JobAdd(Job obj) {
         boolean flag = false;
         JDBC.getCon();
-        String s = "insert into job_inf(id,name,remark)" + " values(" +
-                "'" + obj.getId() + "','" + obj.getName() + "','" + obj.getRemark() + "')";
+        String s = "insert into job_inf(name,remark,dept_id)" + " values(" +
+                "'" + obj.getName() +
+                "','" + obj.getRemark() +
+                "','" + obj.getDept_id() + "')";
 
         int i = JDBC.addUpdDel(s);
         if (i > 0) {
@@ -101,7 +103,7 @@ public class jobDaoImpl implements jobDao {
             JDBC.getCon();
             ResultSet rs = JDBC.selectSql("SELECT j.`name` FROM dept_inf AS d ,job_inf AS j WHERE d.id=j.id;");
             while (rs.next()) {
-                Job jobobj=new Job();
+                Job jobobj = new Job();
 //                jobobj.setId(rs.getInt("id"));
                 jobobj.setName(rs.getString("name"));
                 listjobname.add(jobobj);

@@ -26,9 +26,9 @@ public class jobRegisterServlet extends HttpServlet {
         String remark = request.getParameter("remark");
 
         Job jobobj = new Job();
-        jobobj.setId(deptid);
         jobobj.setName(lname);
         jobobj.setRemark(remark);
+        jobobj.setDept_id(deptid);
         //将获取到的数据与数据库的数据进行判断
         jobDao jobDao = new jobDaoImpl();
 

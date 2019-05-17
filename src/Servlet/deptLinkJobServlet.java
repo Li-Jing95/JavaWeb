@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/deptLinkJobServlet")
 public class deptLinkJobServlet extends HttpServlet {
@@ -32,6 +35,17 @@ public class deptLinkJobServlet extends HttpServlet {
         response.setContentType("application/json;charset=utf-8");
         PrintWriter writer = response.getWriter();
 
+
+//        List<Map<String, Object>> result = new ArrayList<>();
+//        for (Job job:jobList){
+//            Map<String, Object> map = new HashMap<>();
+//            map.put("id",job.getId());
+//            map.put("name",job.getName());
+//            result.add(map);
+//        }
+
+//        String resultString = JSONArray.toJSONString(result);
+//        writer.write(resultString);
         JSONArray jobJsonArray = new JSONArray();
         for (Job job:jobList){
             JSONObject jsonObject = new JSONObject();

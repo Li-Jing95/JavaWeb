@@ -43,28 +43,29 @@
                 <th>操作</th>
             </tr>
             <c:forEach var="u" items="${findall}">
-                <form action="employeeUpdateServlet" method="post">
+                <%--<form action="employeeUpdateServlet" method="post">--%>
                     <tr>
                         <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
                         <td><input type="text" value="${u.name}" name="name" size="1"></td>
                         <td><input type="text" value="${u.sex}" name="sex" size="1"></td>
                         <td><input type="text" value="${u.nation}" name="nation" size="1"></td>
-                        <td><input type="text" value="${u.polic}" name="polic" size="3"></td>
+                        <td><input type="text" value="${u.polic}" name="polic" size="2"></td>
                         <td><input type="text" value="${u.born}" name="born" size="5"></td>
                         <td><input type="text" value="${u.tel}" name="tel" size="8"></td>
                         <td><input type="text" value="${u.email}" name="email" size="10"></td>
-                        <td><input type="text" value="${u.education}" name="education" size="1"></td>
+                        <td><input type="text" value="${u.education}" name="education" size="2"></td>
                         <td><input type="text" value="${u.card_id}" name="card_id" size="12"></td>
                         <td><input type="text" value="${u.dept}" name="dept" readonly="readonly" size="3"></td>
                         <td><input type="text" value="${u.job}" name="job" readonly="readonly" size="5"></td>
                         <td><input type="text" value="${u.createdate}" name="createdate" size="8"></td>
                         <td>
                             <a href="employeeDeleteServlet?id=${u.id}">删除</a>
-                            <input type="submit" value="更新"/>
+                            <a href="employeeListByIdServlet?id=${u.id}">更新</a>
+                                <%--<input type="submit" value="更新"/>--%>
                             <a href="employeeChangeJobServlet?id=${u.id}">调岗</a>
                         </td>
                     </tr>
-                </form>
+                <%--</form>--%>
             </c:forEach>
         </table>
     </center>

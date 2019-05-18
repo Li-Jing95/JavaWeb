@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Jing
-  Date: 2019/5/17
-  Time: 18:39
+  Date: 2019/5/18
+  Time: 13:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,12 +17,12 @@
     <center>
         <table class="gridtable">
             <tr>
-                <th>性别</th>
+                <th>政治面貌</th>
                 <th>比例(百分比)</th>
             </tr>
             <c:forEach var="u" items="${findall}">
                 <tr>
-                    <td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="5"></td>
+                    <td><input type="text" value="${u.polic}" name="polic" readonly="readonly" size="5"></td>
                     <td><input type="text" value="${u.count}" name="count" size="10"></td>
                 </tr>
             </c:forEach>

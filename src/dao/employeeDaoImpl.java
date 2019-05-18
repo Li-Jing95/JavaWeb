@@ -1,8 +1,6 @@
 package dao;
 
-import domain.Dept;
 import domain.Employee;
-import domain.Job;
 import erp.JDBC;
 
 import java.sql.ResultSet;
@@ -117,8 +115,8 @@ public class employeeDaoImpl implements employeeDao {
                     "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name`='" + name + "'");
             while (rs.next()) {
                 Employee employeeobj = new Employee();
-                employeeobj.setId(rs.getInt("id"));
                 employeeobj.setName(rs.getString("name"));
+                employeeobj.setId(rs.getInt("id"));
                 employeeobj.setSex(rs.getString("sex"));
                 employeeobj.setNation(rs.getString("nation"));
                 employeeobj.setPolic(rs.getString("polic"));
@@ -224,6 +222,50 @@ public class employeeDaoImpl implements employeeDao {
     }
 
     @Override
+    public ArrayList<Employee> findEducationalAll() {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+//            ResultSet rs = JDBC.selectSql("SELECT e.sex ,COUNT(e.sex) AS count FROM employee_inf AS e GROUP BY sex;");
+            ResultSet rs = JDBC.selectSql("SELECT e.education,(ROUND(COUNT(e.education)/(SELECT COUNT(*)FROM employee_inf)*100,1)) AS count\n" +
+                    "FROM employee_inf AS e GROUP BY education;");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setEducation(rs.getString("education"));
+                employeeobj.setCount(rs.getInt("count"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public ArrayList<Employee> findPoliticalAll() {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+//            ResultSet rs = JDBC.selectSql("SELECT e.sex ,COUNT(e.sex) AS count FROM employee_inf AS e GROUP BY sex;");
+            ResultSet rs = JDBC.selectSql("SELECT e.polic,(ROUND(COUNT(e.polic)/(SELECT COUNT(*)FROM employee_inf)*100,1)) AS count\n" +
+                    "FROM employee_inf AS e GROUP BY polic;");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setPolic(rs.getString("polic"));
+                employeeobj.setCount(rs.getInt("count"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
     public ArrayList<Employee> findEmployeePayById(int id) {
         ArrayList<Employee> list = new ArrayList<>();
         try {
@@ -246,4 +288,33 @@ public class employeeDaoImpl implements employeeDao {
         return list;
     }
 
+    @Override
+    public ArrayList<Employee> findEmployeeById(int id) {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT id,`name`,sex,nation,polic,born,tel,email,education,card_id,createdate " +
+                    "FROM employee_inf " +
+                    "WHERE id='" + id + "'");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setId(rs.getInt("id"));
+                employeeobj.setName(rs.getString("name"));
+                employeeobj.setSex(rs.getString("sex"));
+                employeeobj.setNation(rs.getString("nation"));
+                employeeobj.setPolic(rs.getString("polic"));
+                employeeobj.setBorn(rs.getString("born"));
+                employeeobj.setTel(rs.getString("tel"));
+                employeeobj.setEmail(rs.getString("email"));
+                employeeobj.setEducation(rs.getString("education"));
+                employeeobj.setCard_id(rs.getString("card_id"));
+                employeeobj.setCreatedate(rs.getString("createdate"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

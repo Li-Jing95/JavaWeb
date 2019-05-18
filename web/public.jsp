@@ -43,21 +43,6 @@
 <div id="nav">
     <div class="dropdown">
         <ul class="score">
-            <li><span>用户管理</span>
-                <ol class="public">
-                    <li>
-                        <form action="findAllServlet" method="post">
-                            <input type="submit" value="用户列表" class="square">
-                        </form>
-                    </li>
-                    <li>
-                        <form action="addUser.jsp" method="post">
-                            <input type="submit" value="添加用户" class="square">
-                        </form>
-                    </li>
-
-                </ol>
-            </li>
             <li><span>部门管理</span>
                 <ol class="public">
                     <li>
@@ -124,6 +109,30 @@
                     <li>
                         <form action="manOrWomanServlet" method="post">
                             <input type="submit" value="男女比例" class="square">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="educationalLevelServlet" method="post">
+                            <input type="submit" value="学历层次" class="square">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="politicalLevelServlet" method="post">
+                            <input type="submit" value="政治层次" class="square">
+                        </form>
+                    </li>
+                </ol>
+            </li>
+            <li><span>用户管理</span>
+                <ol class="public">
+                    <li>
+                        <form action="findAllServlet" method="post">
+                            <input type="submit" value="用户列表" class="square">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="addUser.jsp" method="post">
+                            <input type="submit" value="添加用户" class="square">
                         </form>
                     </li>
                 </ol>

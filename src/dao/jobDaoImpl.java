@@ -1,13 +1,11 @@
 package dao;
 
-import domain.Dept;
 import domain.Job;
 import erp.JDBC;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class jobDaoImpl implements jobDao {
 
@@ -77,7 +75,7 @@ public class jobDaoImpl implements jobDao {
     }
 
     @Override
-    public ArrayList findJobName(String name) {
+    public ArrayList<Job> findJobName(String name) {
         ArrayList<Job> listjobname = new ArrayList<>();
         try {
             JDBC.getCon();

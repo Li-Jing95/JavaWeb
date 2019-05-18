@@ -1,8 +1,6 @@
 package dao;
 
-import domain.Dept;
 import domain.Employee;
-import domain.Job;
 
 import java.util.ArrayList;
 
@@ -23,8 +21,14 @@ public interface employeeDao {
 
     boolean employeeOkJobUpdate(int id,int dept_id,int job_id);
 
-    ArrayList<Employee> findManOrWomanAll();
+    ArrayList<Employee> findManOrWomanAll();//男女比例
+
+    ArrayList<Employee> findEducationalAll();//学历层次
+
+    ArrayList<Employee> findPoliticalAll();//政治层次
 
     ArrayList<Employee> findEmployeePayById(int id);//通过id值查找用户薪资信息
+
+    ArrayList<Employee> findEmployeeById(int id);//通过id值显示员工信息
 
 }

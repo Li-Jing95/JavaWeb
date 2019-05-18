@@ -22,7 +22,7 @@ public class Employee {
 
     private String jobpay;
     private String localpay;
-    private int sum;
+    private int sum; //计算应发薪资
 
     private int count;//男女比统计值
 

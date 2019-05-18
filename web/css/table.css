@@ -3,12 +3,13 @@ table.gridtable {
     font-size: 11px;
     color: #333333; /*字体颜色*/
     border-width: 1px;
-    border-color: #53bebd;
+    /*border-color: #53bebd;*/
+    border-color: #1592ef;
     border-collapse: collapse;
 }
 
 table.gridtable tr {
-    background-color: #53bebd;
+    background-color: #1592ef;
 }
 
 table.gridtable th {
@@ -22,7 +23,7 @@ table.gridtable td {
     border-width: 1px;
     padding: 8px;
     border-style: solid;
-    border-color: #53bebd;
+    border-color: #1592ef;
     background-color: #ffffff;
 }
 
@@ -31,19 +32,19 @@ table.gridtable td {
     /*width:400px;*/
     height: 40px;
     width: 300px;
-    border: 2px solid #53bebd !important;
+    border: 2px solid #1592ef !important;
     padding-left: 30px;
 }
 
 .select .loginname:focus, .select .loginname:hover {
-    border: 2px solid #53bebd !important;
+    border: 2px solid #1592ef !important;
 }
 
 .select .submit {
     /*height:50px;*/
     height: 40px;
     width: 80px;
-    background: #53bebd;
+    background: #1592ef;
     border: 0px;
     vertical-align: middle;
     margin-left: -10px;

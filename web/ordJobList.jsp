@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Jing
-  Date: 2019/4/6
-  Time: 15:09
+  Date: 2019/5/17
+  Time: 20:36
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
     <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%@ include file="public.jsp" %>
+<%@ include file="ordinary.jsp" %>
 <div id="section">
     <!--搜索栏-->
     <div class="select">
@@ -33,20 +33,13 @@
                 <th>ID</th>
                 <th>职位名称</th>
                 <th>职位描述</th>
-                <th>操作</th>
             </tr>
             <c:forEach var="u" items="${findall}">
-                <form action="jobUpdateServlet" method="post">
-                    <tr>
-                        <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>
-                        <td><input type="text" value="${u.name}" name="name" size="10"></td>
-                        <td><input type="text" value="${u.remark}" name="remark" size="70"></td>
-                        <td>
-                            <a href="jobDeleteServlet?id=${u.id}">删除</a>
-                            <input type="submit" value="更新"/>
-                        </td>
-                    </tr>
-                </form>
+                <tr>
+                    <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>
+                    <td><input type="text" value="${u.name}" name="name" size="10"></td>
+                    <td><input type="text" value="${u.remark}" name="remark" size="70"></td>
+                </tr>
             </c:forEach>
         </table>
     </center>

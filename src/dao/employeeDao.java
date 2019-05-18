@@ -15,7 +15,7 @@ public interface employeeDao {
 
     ArrayList<Employee> findEmployeeAll();//查
 
-    ArrayList findEmployeeName(String name);//通过名字查找
+    ArrayList<Employee> findEmployeeByName(String name);//通过名字查找
 
     ArrayList<Employee> findEmployeeJobId(int id);
 
@@ -24,5 +24,7 @@ public interface employeeDao {
     boolean employeeOkJobUpdate(int id,int dept_id,int job_id);
 
     ArrayList<Employee> findManOrWomanAll();
+
+    ArrayList<Employee> findEmployeePayById(int id);//通过id值查找用户薪资信息
 
 }

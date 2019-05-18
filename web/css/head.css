@@ -15,7 +15,8 @@ a{
 /*系统头部样式*/
 #header {
     /*background-color: #121415;*/
-    background-color: #53bebd;
+    /*background-color: #1592ef;*/
+    background-image: url('../img/1.jpg');
     color: white;
     text-align: left;
     /*height: 80px;*/
@@ -33,10 +34,10 @@ a{
     display: inline-block;
     margin:25px 15px;
     cursor: pointer;
-    /*transition: all .2s;*/
+    transition: all .2s;
 }
 #header .loginout:hover, #header .reindex:hover{
-    color:#53bebd;
+    color:#1592ef;
 }
 /*菜单左侧样式*/
 #nav {
@@ -110,8 +111,8 @@ li {
     display: block;
 }
 .score li:hover span{
-    border-left: 4px solid #53bebd;
-    color:#53bebd;
+    border-left: 4px solid #1592ef;
+    color:#1592ef;
     background: #ddd;
 }
 .public{
@@ -124,11 +125,11 @@ li {
 .public li {
     color: #666;
     height:30px;
-    /*transition: all .2s;*/
+    transition: all .2s;
     line-height: 30px;
 }
 .public li:hover .square{
-    color:#53bebd!important;
+    color:#1592ef!important;
     cursor: pointer;
 }
 .square {

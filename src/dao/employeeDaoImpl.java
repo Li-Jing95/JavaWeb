@@ -79,7 +79,7 @@ public class employeeDaoImpl implements employeeDao {
         ArrayList<Employee> employeelist = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate " +
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate " +
                     "FROM employee_inf AS e , dept_inf AS d, job_inf AS j " +
                     "WHERE e.dept_id=d.id AND e.job_id=j.id;");
             while (rs.next()) {
@@ -100,33 +100,35 @@ public class employeeDaoImpl implements employeeDao {
                 employeelist.add(employeeobj);
             }
             JDBC.Close();
-            return employeelist;
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return employeelist;
     }
 
     @Override
-    public ArrayList findEmployeeName(String name) {
+    public ArrayList<Employee> findEmployeeByName(String name) {
         ArrayList<Employee> list = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT * FROM " +
-                    "(SELECT e.id,e.`name`,e.sex,e.tel,e.email,j.`name` AS job,e.education,e.card_id,d.`name` AS dept,e.createdate FROM employee_inf AS e,dept_inf AS d ,job_inf AS j WHERE e.dept_id=d.emp_id AND e.job_id=j.emp_id) AS aaa " +
-                    "WHERE aaa.`name`='" + name + "'");
-
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate" +
+                    "FROM employee_inf AS e , dept_inf AS d, job_inf AS j" +
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name`='" + name + "'");
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setId(rs.getInt("id"));
                 employeeobj.setName(rs.getString("name"));
                 employeeobj.setSex(rs.getString("sex"));
+                employeeobj.setNation(rs.getString("nation"));
+                employeeobj.setPolic(rs.getString("polic"));
+                employeeobj.setBorn(rs.getString("born"));
                 employeeobj.setTel(rs.getString("tel"));
                 employeeobj.setEmail(rs.getString("email"));
-                employeeobj.setJob(rs.getString("job"));
                 employeeobj.setEducation(rs.getString("education"));
                 employeeobj.setCard_id(rs.getString("card_id"));
                 employeeobj.setDept(rs.getString("dept"));
+                employeeobj.setJob(rs.getString("job"));
                 employeeobj.setCreatedate(rs.getString("createdate"));
                 list.add(employeeobj);
             }
@@ -136,7 +138,6 @@ public class employeeDaoImpl implements employeeDao {
         }
         return list;
     }
-
 
     @Override
     public ArrayList<Employee> findEmployeeJobId(int id) {
@@ -220,6 +221,29 @@ public class employeeDaoImpl implements employeeDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public ArrayList<Employee> findEmployeePayById(int id) {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,d.`name` AS dept,j.name AS job,(localpay+jobpay) AS sum FROM employee_inf AS e,dept_inf AS d, job_inf AS j " +
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.id='" + id + "'");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setName(rs.getString("name"));
+                employeeobj.setDept(rs.getString("dept"));
+                employeeobj.setJob(rs.getString("job"));
+                employeeobj.setSum(rs.getInt("sum"));
+                employeeobj.setId(rs.getInt("id"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

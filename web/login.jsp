@@ -7,30 +7,34 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
-    <title>登陆界面</title>
-    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8"/>
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
+
 <body>
-<center>
-    <div class="wrapper">
-        <form action="loginServlet" method="post" class="form-signin">
-            <h1>企业人事管理系统</h1>
-            <h3>请登录</h3>
-            <table border="0">
-                <tr>
-                    <td>用户名:</td>
-                    <td><input type="text" class="form-control"name="loginname"></td>
-                </tr>
-                <tr>
-                    <td>密&nbsp;&nbsp;&nbsp;&nbsp;码:</td>
-                    <td><input type="password" class="form-control" name="password"></td>
-                </tr>
-            </table>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="submit" class="button" value="登录">
-        </form>
-    </div>
-</center>
+<img class="bgone" src="img/1.jpg"/>
+<img class="pic" src="img/a.png"/>
+
+<div class="table">
+    <form action="loginServlet" method="post">
+        <div class="wel">企业人事管理系统登录</div>
+        <div class="wel1">QI YE REN SHI GUAN LI XI TONG DENG LU</div>
+        <div class="user">
+            <div id="yonghu"><img src="img/yhm.png"/>
+            </div>
+            <input type="text" name="loginname" placeholder="用户名"/>
+        </div>
+        <div class="password">
+            <div id="yonghuhu"><img src="img/mm.png"/></div>
+            <input type="password" name="password" placeholder="密码"/>
+        </div>
+        <input class="btn" type="submit" value="登录"/>
+    </form>
+</div>
+
+
 </body>
 </html>

@@ -1,8 +1,8 @@
-package Servlet.employee;
+package Servlet;
 
-import dao.employeeDao;
-import dao.employeeDaoImpl;
-import domain.Employee;
+import dao.payDao;
+import dao.payDaoImpl;
+import domain.Pay;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,19 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/employeeSelectServlet")
-public class employeeSelectServlet extends HttpServlet {
+@WebServlet("/realPayFindAllServlet")
+public class realPayFindAllServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String name = request.getParameter("name");
-        System.out.println("1:" + name);
-        employeeDao employeeDao = new employeeDaoImpl();
-        ArrayList<Employee> list = employeeDao.findEmployeeByName(name);
+        payDao payDao = new payDaoImpl();
+        ArrayList<Pay> list = payDao.findPayAll();
         request.setAttribute("findall", list);
-        request.getRequestDispatcher("/employeelist.jsp").forward(request, response);
+        request.getRequestDispatcher("/realPayList.jsp").forward(request, response);
     }
 }

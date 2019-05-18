@@ -99,7 +99,12 @@
                     </li>
                     <li>
                         <form action="employeePayFindAllServlet" method="post">
-                            <input type="submit" value="员工薪资" class="square">
+                            <input type="submit" value="应发薪资" class="square">
+                        </form>
+                    </li>
+                    <li>
+                        <form action="realPayFindAllServlet" method="post">
+                            <input type="submit" value="实发薪资" class="square">
                         </form>
                     </li>
                 </ol>

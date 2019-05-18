@@ -13,19 +13,8 @@
     <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">
-    <!--搜索栏-->
-    <div class="select">
-        <center>
-            <br><br>
-            <form action="employeePaySelectServlet" method="post">
-                <input type="text" name="loginname" placeholder="请输入要查找的员工" class="loginname">
-                <input type="submit" value="搜索" class="submit">
-            </form>
-        </center>
-    </div>
     <br><br>
     <!--显示列表-->
     <center>
@@ -41,27 +30,24 @@
                 <th>基本薪资</th>
                 <th>岗位薪资</th>
                 <th>应发薪资</th>
-                <th>税后工资</th>
                 <th>操作</th>
             </tr>
             <c:forEach var="u" items="${findall}">
-                    <tr>
-                        <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
-                        <td><input type="text" value="${u.name}" name="name" size="3"></td>
-                        <td><input type="text" value="${u.sex}" name="sex" size="3"></td>
-                        <td><input type="text" value="${u.tel}" name="tel" size="12"></td>
-                        <td><input type="text" value="${u.email}" name="email" size="12"></td>
-                        <td><input type="text" value="${u.dept}" name="dept" size="7"></td>
-                        <td><input type="text" value="${u.job}" name="job" size="7"></td>
-                        <td><input type="text" value="${u.localpay}" name="localpay" size="3"></td>
-                        <td><input type="text" value="${u.jobpay}" name="jobpay" size="3"></td>
-                        <td><input type="text" value="${u.sum}" name="sum" size="3"></td>
-                        <td><input type="text" id="shuihou" name="shuihou" size="3"></td>
-                        <%--<td><input type="text" id="shifa" name="shuihou" size="3"></td>--%>
-                        <td>
-                            <a href="employeePayChangeByIdServlet?id=${u.id}">修改</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
+                    <td><input type="text" value="${u.name}" name="name" size="3"></td>
+                    <td><input type="text" value="${u.sex}" name="sex" size="3"></td>
+                    <td><input type="text" value="${u.tel}" name="tel" size="12"></td>
+                    <td><input type="text" value="${u.email}" name="email" size="12"></td>
+                    <td><input type="text" value="${u.dept}" name="dept" size="7"></td>
+                    <td><input type="text" value="${u.job}" name="job" size="7"></td>
+                    <td><input type="text" value="${u.localpay}" name="localpay" size="3"></td>
+                    <td><input type="text" value="${u.jobpay}" name="jobpay" size="3"></td>
+                    <td><input type="text" value="${u.sum}" name="sum" size="3"></td>
+                    <td>
+                        <a href="employeePayChangeByIdServlet?id=${u.id}">查看实发薪资</a>
+                    </td>
+                </tr>
             </c:forEach>
         </table>
     </center>

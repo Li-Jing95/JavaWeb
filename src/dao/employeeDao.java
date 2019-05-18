@@ -31,4 +31,9 @@ public interface employeeDao {
 
     ArrayList<Employee> findEmployeeById(int id);//通过id值显示员工信息
 
+    boolean isOrNotId(int loginname);
+
+    boolean idAdd(int id);//入库
+
+
 }

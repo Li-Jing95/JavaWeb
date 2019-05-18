@@ -1,7 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
-
 public class Employee {
     private int id;
     private int job_id;
@@ -22,6 +20,7 @@ public class Employee {
 
     private String jobpay;
     private String localpay;
+
     private int sum; //计算应发薪资
 
     private int count;//男女比统计值
@@ -33,8 +32,6 @@ public class Employee {
     public void setCount(int count) {
         this.count = count;
     }
-
-
 
     public int getId() {
         return id;

@@ -27,7 +27,7 @@
     <center>
         <table class="gridtable">
             <tr>
-                <th>ID</th>
+                <th>员工编号</th>
                 <th>姓名</th>
                 <th>性别</th>
                 <th>民族</th>
@@ -63,6 +63,7 @@
                             <a href="employeeListByIdServlet?id=${u.id}">更新</a>
                                 <%--<input type="submit" value="更新"/>--%>
                             <a href="employeeChangeJobServlet?id=${u.id}">调岗</a>
+                            <a href="employeeAddOrdUserServlet?id=${u.id}">入库</a>
                         </td>
                     </tr>
                 <%--</form>--%>

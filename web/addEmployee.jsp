@@ -1,7 +1,7 @@
-<%@ page import="domain.Dept" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="dao.deptDao" %>
 <%@ page import="dao.deptDaoImpl" %>
+<%@ page import="domain.Dept" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: Jing
@@ -41,7 +41,14 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">政治面貌</td>
-                        <td><input type="text" name="polic" class="loginname"></td>
+                        <td>
+                            <select name="polic" class="loginname">
+                                <option value="0">请选择</option>
+                                <option value="群众">群众</option>
+                                <option value="团员">团员</option>
+                                <option value="党员">党员</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">出生日期</td>
@@ -57,7 +64,14 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">学历</td>
-                        <td><input type="text" name="education" class="loginname"></td>
+                        <td>
+                            <select name="education" class="loginname">
+                                <option value="0">请选择</option>
+                                <option value="专科">专科</option>
+                                <option value="本科">专科</option>
+                                <option value="研究生">研究生</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">身份证号</td>

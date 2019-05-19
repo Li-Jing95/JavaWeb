@@ -111,4 +111,21 @@ public class deptDaoImpl implements deptDao {
         }
         return listdeptname;
     }
+
+    @Override
+    public boolean isOrNotjob(int id) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT * FROM (SELECT d.id,COUNT(*) from dept_inf AS d inner JOIN job_inf AS j ON d.id=j.dept_id GROUP BY d.id) AS a WHERE a.id=" + id + ";");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

@@ -14,7 +14,7 @@
 <div id="section">
     <div class="select">
         <center>
-            &nbsp;
+            &nbsp;<!--这是空格不能删除-->
             <form action="ordChangeMiMaServet" method="post">
                 <table>
                     <tr>
@@ -23,16 +23,19 @@
                     </tr>
 
                 </table>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;<!--这是空格不能删除-->
                 <tr>
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
+                            &nbsp;&nbsp;&nbsp;<!--这是空格不能删除-->
+                            <a href="ordOk.jsp">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </div>
                 </tr>
             </form>
-
         </center>
     </div>
 </div>

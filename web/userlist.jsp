@@ -9,7 +9,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
-<h5>${xiaoxi}</h5>
 <%@include file="public.jsp"%>
 <div id="section">
     <!--搜索栏-->

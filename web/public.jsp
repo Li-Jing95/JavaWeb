@@ -29,9 +29,8 @@
                 $("#jobNameList").html(option);//将循环拼接的字符串插入第二个下拉列表
                 $("#jobNameList").show();//把第二个下拉列表展示
             });
-
         } else {
-            $("#jobNameList").hide();
+            $("#jobNameList").hide();//隐藏对象不生效
         }
     }
 </script>

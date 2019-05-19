@@ -13,7 +13,7 @@
 <div id="section">
     <div class="select">
         <center>
-            &nbsp;
+            &nbsp;<!--这儿有空格不能删除-->
             <form action="employeeUpdateServlet" method="post">
                 <table>
                     <c:forEach var="u" items="${findall}">
@@ -83,12 +83,12 @@
                         </tr>
                     </c:forEach>
                 </table>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;<!--这儿有空格不能删除-->
                 <tr>
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
-                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;<!--这儿有空格不能删除-->
                             <a href="employeeFindAllServlet">
                                 <input type="button" value="取消" class="submit">
                             </a>

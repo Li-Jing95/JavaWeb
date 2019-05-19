@@ -18,7 +18,6 @@
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>
-
     <a class="loginout" href="ordLogin.jsp"><i class="iconfont icon-tuichudenglu">退出登录</i></a>
     <a class="reindex" href="ordOk.jsp"><i class="iconfont icon-fanhuishouye">返回首页</i></a>
 </div>
@@ -61,10 +60,8 @@
                 <span class="iconfont icon-yuangong">
                     <a href="ordChangeMiMa.jsp">修改密码</a>
                 </span>
-
             </li>
         </ul>
-
     </div>
 </div>
 </body>

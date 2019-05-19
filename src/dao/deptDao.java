@@ -15,6 +15,10 @@ public interface deptDao {
 
     ArrayList findDeptByName(String name);//通过部门名字查找
 
-     ArrayList<Dept> findNameAll();//显示部门名字，为添加岗位信息做准备
+    ArrayList<Dept> findNameAll();//显示部门名字，为添加岗位信息做准备
+
+    boolean isOrNotjob(int id);//判断部门下是否有岗位
+
+
 
 }

@@ -11,7 +11,6 @@
 <body>
 <%@ include file="ordinary.jsp" %>
 <div id="section">
-
     <br><br>
     <!--显示列表-->
     <center>

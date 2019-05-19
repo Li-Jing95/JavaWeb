@@ -13,7 +13,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
-<h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">
     <!--搜索栏-->
@@ -61,6 +60,9 @@
                         </td>
                         <td>
                             <input type="submit" value="确定"/>
+                            <a href="employeeFindAllServlet">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </tr>
                 </form>

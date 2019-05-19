@@ -23,18 +23,27 @@ public class deptDeleteServlet extends HttpServlet {
         int deptId = Integer.parseInt(id);
         //将获取到的数据与数据库的数据进行判断
         deptDao deptDao = new deptDaoImpl();
-        if (deptDao.DeptDelete(deptId)) {
+
+        if (deptDao.isOrNotjob(deptId)) {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('删除成功！');window.location='deptFindAllServlet'</script>");
+            out.print("<script language='javascript'>alert('该部门下有岗位，请勿删除！');window.location='deptFindAllServlet'</script>");
             out.flush();
             out.close();
         } else {
-            response.setContentType("text/html;charset=utf-8");
-            PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('删除失败！');window.location='deptFindAllServlet'</script>");
-            out.flush();
-            out.close();
+            if (deptDao.DeptDelete(deptId)) {
+                response.setContentType("text/html;charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.print("<script language='javascript'>alert('删除成功！');window.location='deptFindAllServlet'</script>");
+                out.flush();
+                out.close();
+            } else {
+                response.setContentType("text/html;charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.print("<script language='javascript'>alert('删除失败！');window.location='deptFindAllServlet'</script>");
+                out.flush();
+                out.close();
+            }
         }
     }
 }

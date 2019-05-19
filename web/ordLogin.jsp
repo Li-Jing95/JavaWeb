@@ -10,10 +10,9 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>登录</title>
+    <title>普通用户登录</title>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
-
 <body>
 <img class="bgone" src="img/1.jpg"/>
 <img class="pic" src="img/a.png"/>
@@ -34,7 +33,5 @@
         <input class="btn" type="submit" value="登录"/>
     </form>
 </div>
-
-
 </body>
 </html>

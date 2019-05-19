@@ -19,5 +19,7 @@ public interface jobDao {
 
     ArrayList<Job> findJobListByDeptId(Integer deptId);
 
+    boolean isOrNotHaveEmployee(int id);//判断岗位下是否有员工
+
 
 }

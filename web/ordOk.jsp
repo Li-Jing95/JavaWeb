@@ -11,7 +11,10 @@
 <div id="baba">
     <%@ include file="ordinary.jsp" %>
     <div id="section">
-        <h2 align="center">欢迎登录</h2>
+        <h2 align="center">欢迎工号为<%=session.getAttribute("login")%>的员工登录</h2>
+        <center>
+            <img src="img/aa.png">
+        </center>
     </div>
 </div>
 </body>

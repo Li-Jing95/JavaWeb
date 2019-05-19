@@ -65,11 +65,15 @@
                         </tr>
                     </c:forEach>
                 </table>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;<!--这有空格不能删除-->
                 <tr>
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
+                            &nbsp;&nbsp;&nbsp;<!--这有空格不能删除-->
+                            <a href="employeePayFindAllServlet">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </div>
                 </tr>

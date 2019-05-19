@@ -14,7 +14,6 @@
 
 <html>
 <body>
-<h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">
     <div class="select">
@@ -29,9 +28,9 @@
                     <tr>
                         <td align="center" class="submit">性别</td>
                         <td>
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<!--这儿有空格不能删除-->
                             <input type="radio" name="sex" value="男">男
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<!--这儿有空格不能删除-->
                             <input type="radio" name="sex" value="女">女
                         </td>
                     </tr>
@@ -82,7 +81,7 @@
                         <td>
                             <select onchange="getJobNameBySelectedDeptName(this.value)" id="dept" name="brand"
                                     class="loginname">
-                                <option>选择部门</option>
+                                <option value="0">选择部门</option>
                                 <%
                                     deptDao deptDao = new deptDaoImpl();
                                     ArrayList<Dept> list = deptDao.findNameAll();
@@ -107,11 +106,15 @@
                     </tr>
 
                 </table>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;<!--这儿有空格不能删除-->
                 <tr>
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
+                            &nbsp;&nbsp;&nbsp;<!--这有空格不能删除-->
+                            <a href="employeeFindAllServlet">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </div>
                 </tr>

@@ -7,10 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="domain.User" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="dao.userDao" %>
-<%@ page import="dao.userDaoImpl" %>
 
 <html>
 
@@ -51,6 +47,10 @@
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
+                            &nbsp;&nbsp;&nbsp;<!--这有空格不能删除-->
+                            <a href="findAllServlet">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </div>
                 </tr>

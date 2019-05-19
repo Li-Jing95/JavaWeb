@@ -9,14 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
-<h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">
     <div class="select">
         <center>
-            &nbsp;&nbsp;
+            &nbsp;&nbsp;<!--这儿有空格不能删除-->
             <h3>添加信息</h3>
-            &nbsp;
+            &nbsp;<!--这儿有空格不能删除-->
             <form action="deptRegisterServlet" method="post">
                 <table>
                     <!--登录名-->
@@ -30,11 +29,15 @@
                         <td><input type="text" name="remark" class="loginname"></td>
                     </tr>
                 </table>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;<!--这儿有空格不能删除-->
                 <tr>
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
+                            &nbsp;&nbsp;&nbsp;<!--这儿有空格不能删除-->
+                            <a href="deptFindAllServlet">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </div>
                 </tr>

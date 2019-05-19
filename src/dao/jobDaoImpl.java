@@ -132,4 +132,21 @@ public class jobDaoImpl implements jobDao {
         }
         return listjobname;
     }
+
+    @Override
+    public boolean isOrNotHaveEmployee(int id) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT * FROM (SELECT j.id,COUNT(*) from job_inf AS j inner JOIN employee_inf AS e ON j.id=e.job_id GROUP BY j.id) AS a WHERE a.id=" + id + ";");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

@@ -10,6 +10,7 @@
 <head>
     <link href="css/head.css" rel="stylesheet" type="text/css">
     <link href="css/table.css" rel="stylesheet" type="text/css">
+    <link href="css/iconfont.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript" defer="defer"
         src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js">
@@ -37,107 +38,137 @@
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>
-    <a class="reindex" href="ok.jsp">返回首页</a>
-    <a class="loginout" href="login.jsp">退出登录</a>
+    <a class="loginout" href="login.jsp"><i class="iconfont icon-tuichudenglu">退出登录</i></a>
+    <a class="reindex" href="ok.jsp"><i class="iconfont icon-fanhuishouye">返回首页</i></a>
 </div>
 <div id="nav">
     <div class="dropdown">
         <ul class="score">
-            <li><span>部门管理</span>
+            <li><span class="iconfont icon-bumen"> 部门管理</span>
                 <ol class="public">
                     <li>
                         <form action="deptFindAllServlet" method="post">
-                            <input type="submit" value="部门列表" class="square">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="部门列表" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="addDept.jsp" method="post">
-                            <input type="submit" value="添加部门" class="square">
+                            <i class="iconfont icon-tianjia">
+                                <input type="submit" value="添加部门" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>
             </li>
-            <li><span>职位管理</span>
+            <li><span class="iconfont icon-zhiwei"> 职位管理</span>
                 <ol class="public">
                     <li>
                         <form action="jobFindAllServlet" method="post">
-                            <input type="submit" value="职位列表" class="square">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="职位列表" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="addJob.jsp" method="post">
-                            <input type="submit" value="添加职位" class="square">
+                            <i class="iconfont icon-tianjia">
+                                <input type="submit" value="添加职位" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>
             </li>
-            <li><span>员工管理</span>
+            <li><span class="iconfont icon-yuangong"> 员工管理</span>
                 <ol class="public">
                     <li>
                         <form action="employeeFindAllServlet" method="post">
-                            <input type="submit" value="员工列表" class="square">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="员工列表" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="addEmployee.jsp" method="post">
-                            <input type="submit" value="添加员工" class="square">
+                            <i class="iconfont icon-tianjia">
+                                <input type="submit" value="添加员工" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>
             </li>
-            <li><span>薪资管理</span>
+            <li><span class="iconfont icon-xinzi"> 薪资管理</span>
                 <ol class="public">
                     <li>
                         <form action="localPayFindAllServlet" method="post">
-                            <input type="submit" value="基本薪资" class="square">
+                            <i class="iconfont icon-gongzi">
+                                <input type="submit" value="基本薪资" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="jobPayFindAllServlet" method="post">
-                            <input type="submit" value="岗位薪资" class="square">
+                            <i class="iconfont icon-gongzi">
+                                <input type="submit" value="岗位薪资" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="employeePayFindAllServlet" method="post">
-                            <input type="submit" value="应发薪资" class="square">
+                            <i class="iconfont icon-gongzi">
+                                <input type="submit" value="应发薪资" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="realPayFindAllServlet" method="post">
-                            <input type="submit" value="实发薪资" class="square">
+                            <i class="iconfont icon-gongzi">
+                                <input type="submit" value="实发薪资" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>
             </li>
-            <li><span>统计功能</span>
+            <li><span class="iconfont icon-tongji"> 统计功能</span>
                 <ol class="public">
                     <li>
                         <form action="manOrWomanServlet" method="post">
-                            <input type="submit" value="男女比例" class="square">
+                            <i class="iconfont icon-male8">
+                                <input type="submit" value="男女比例" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="educationalLevelServlet" method="post">
-                            <input type="submit" value="学历层次" class="square">
+                            <i class="iconfont icon-xueli">
+                                <input type="submit" value="学历层次" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="politicalLevelServlet" method="post">
-                            <input type="submit" value="政治层次" class="square">
+                            <i class="iconfont icon-zhengzhi">
+                                <input type="submit" value="政治层次" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>
             </li>
-            <li><span>用户管理</span>
+            <li><span class="iconfont icon-yuangongguanli"> 用户管理</span>
                 <ol class="public">
                     <li>
                         <form action="findAllServlet" method="post">
-                            <input type="submit" value="用户列表" class="square">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="用户列表" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="addUser.jsp" method="post">
-                            <input type="submit" value="添加用户" class="square">
+                            <i class="iconfont icon-tianjia">
+                                <input type="submit" value="添加用户" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>

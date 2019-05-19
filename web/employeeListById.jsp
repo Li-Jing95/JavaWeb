@@ -88,6 +88,10 @@
                     <div>
                         <td>
                             <input type="submit" value="确定" class="submit">
+                            &nbsp;&nbsp;&nbsp;
+                            <a href="employeeFindAllServlet">
+                                <input type="button" value="取消" class="submit">
+                            </a>
                         </td>
                     </div>
                 </tr>

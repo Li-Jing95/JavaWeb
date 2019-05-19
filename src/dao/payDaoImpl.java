@@ -108,4 +108,20 @@ public class payDaoImpl implements payDao {
         }
         return list;
     }
+
+    @Override
+    public boolean isOrNotHaveMonth(String month) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT * from pay_inf AS p WHERE p.`month`='" + month + "'");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

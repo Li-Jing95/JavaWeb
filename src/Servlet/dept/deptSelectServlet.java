@@ -2,7 +2,7 @@ package Servlet.dept;
 
 import dao.deptDao;
 import dao.deptDaoImpl;
-import domain.User;
+import domain.Dept;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +23,7 @@ public class deptSelectServlet extends HttpServlet {
         String name = request.getParameter("name");
 
         deptDao deptDao = new deptDaoImpl();
-        ArrayList<User> list = deptDao.findDeptByName(name);
+        ArrayList<Dept> list = deptDao.findDeptByName(name);
         request.setAttribute("findall", list);
         request.getRequestDispatcher("/deptlist.jsp").forward(request, response);
     }

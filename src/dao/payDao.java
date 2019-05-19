@@ -7,9 +7,11 @@ import java.util.ArrayList;
 public interface payDao {
     boolean payAdd(Pay obj);//增
 
-    ArrayList<Pay> findPayAll();
+    ArrayList<Pay> findPayAll();//查看所有实发薪资
 
-    ArrayList<Pay> findPayByMonth(String month);//通过月份查
+    ArrayList<Pay> findPayByMonth(String month);//通过月份查实发薪资
 
-    ArrayList<Pay> findPayById(int id);//用户 通过编号查看自己的薪资
+    ArrayList<Pay> findPayById(int id);//用户 通过编号查看薪资
+
+    boolean isOrNotHaveMonth(String month);//在实发薪资插入到数据库之前先判断此月工资是否已存在
 }

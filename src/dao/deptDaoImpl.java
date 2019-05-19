@@ -95,7 +95,7 @@ public class deptDaoImpl implements deptDao {
 
     @Override
     public ArrayList<Dept> findNameAll() {
-        ArrayList<Dept> listdeptname = new ArrayList<>();
+        ArrayList<Dept> list = new ArrayList<>();
         try {
             JDBC.getCon();
             ResultSet rs = JDBC.selectSql("select id,NAME FROM dept_inf;");
@@ -103,13 +103,13 @@ public class deptDaoImpl implements deptDao {
                 Dept deptobj = new Dept();
                 deptobj.setId(rs.getInt("id"));
                 deptobj.setName(rs.getString("name"));
-                listdeptname.add(deptobj);
+                list.add(deptobj);
             }
             JDBC.Close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return listdeptname;
+        return list;
     }
 
     @Override

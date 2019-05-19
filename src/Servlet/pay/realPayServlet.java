@@ -51,16 +51,28 @@ public class realPayServlet extends HttpServlet {
 
         payDao payDao = new payDaoImpl();
 
-        if (payDao.payAdd(payobj)) {
-//            request.setAttribute("xiaoxi", "添加成功！");
-//            request.getRequestDispatcher("/realPayFindAllServlet").forward(request, response);
+        if (payDao.isOrNotHaveMonth(month)) {
+            System.out.println(payDao.isOrNotHaveMonth(month));
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('添加成功！');window.location='realPayFindAllServlet'</script>");
+            out.print("<script language='javascript'>alert('此月薪资已添加，请勿重复操作！');window.location='employeePayFindAllServlet'</script>");
             out.flush();
             out.close();
         } else {
-            response.sendRedirect("addUser.jsp");
+
+            if (payDao.payAdd(payobj)) {
+                response.setContentType("text/html;charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.print("<script language='javascript'>alert('添加成功！');window.location='realPayFindAllServlet'</script>");
+                out.flush();
+                out.close();
+            } else {
+                response.setContentType("text/html;charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.print("<script language='javascript'>alert('添加失败！');window.location='realPayFindAllServlet'</script>");
+                out.flush();
+                out.close();
+            }
         }
     }
 }

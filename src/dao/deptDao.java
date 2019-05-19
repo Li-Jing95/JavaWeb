@@ -13,7 +13,7 @@ public interface deptDao {
 
     ArrayList<Dept> findDeptAll();//查所有
 
-    ArrayList findDeptByName(String name);//通过部门名字查找
+    ArrayList<Dept> findDeptByName(String name);//通过部门名字查找
 
     ArrayList<Dept> findNameAll();//显示部门名字，为添加岗位信息做准备
 

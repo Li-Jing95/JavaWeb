@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/employeeRegisterServlet")
 public class employeeRegisterServlet extends HttpServlet {
@@ -53,8 +54,11 @@ public class employeeRegisterServlet extends HttpServlet {
         employeeDao employeeDao = new employeeDaoImpl();
 
         if (employeeDao.EmployeeAdd(employeeobj)) {
-            request.setAttribute("xiaoxi", "添加成功！");
-            request.getRequestDispatcher("/employeeFindAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('添加成功！');window.location='employeeFindAllServlet'</script>");
+            out.flush();
+            out.close();
         } else {
             response.sendRedirect("addEmployee.jsp");
         }

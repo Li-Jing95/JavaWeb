@@ -1,4 +1,4 @@
-package Servlet;
+package Servlet.pay;
 
 import dao.payDao;
 import dao.payDaoImpl;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/realPayServlet")
 public class realPayServlet extends HttpServlet {
@@ -51,8 +52,13 @@ public class realPayServlet extends HttpServlet {
         payDao payDao = new payDaoImpl();
 
         if (payDao.payAdd(payobj)) {
-            request.setAttribute("xiaoxi", "添加成功！");
-            request.getRequestDispatcher("/realPayFindAllServlet").forward(request, response);
+//            request.setAttribute("xiaoxi", "添加成功！");
+//            request.getRequestDispatcher("/realPayFindAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('添加成功！');window.location='realPayFindAllServlet'</script>");
+            out.flush();
+            out.close();
         } else {
             response.sendRedirect("addUser.jsp");
         }

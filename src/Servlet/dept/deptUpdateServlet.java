@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/deptUpdateServlet")
 public class deptUpdateServlet extends HttpServlet {
@@ -26,10 +27,17 @@ public class deptUpdateServlet extends HttpServlet {
 
         deptDao deptDao = new deptDaoImpl();
         if (deptDao.DeptUpdate(name, remark, deptId)) {
-            request.setAttribute("xiaoxi", "更新成功！");
-            request.getRequestDispatcher("/deptFindAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('更新成功！');window.location='deptFindAllServlet'</script>");
+            out.flush();
+            out.close();
         } else {
-            response.sendRedirect("UpdateFail.jsp");
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('更新失败！');window.location='deptFindAllServlet'</script>");
+            out.flush();
+            out.close();
         }
     }
 }

@@ -113,9 +113,6 @@ public class employeeDaoImpl implements employeeDao {
             ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate\n" +
                     "FROM employee_inf AS e , dept_inf AS d, job_inf AS j\n" +
                     "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name`='" + name + "' ");
-
-
-            System.out.println("2:" + name);
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setName(rs.getString("name"));
@@ -131,11 +128,8 @@ public class employeeDaoImpl implements employeeDao {
                 employeeobj.setDept(rs.getString("dept"));
                 employeeobj.setJob(rs.getString("job"));
                 employeeobj.setCreatedate(rs.getString("createdate"));
-                System.out.println("3:" + name);
                 list.add(employeeobj);
             }
-            System.out.println("4:" + name);
-            System.out.println(list);
             JDBC.Close();
             return list;
         } catch (SQLException e) {
@@ -356,5 +350,37 @@ public class employeeDaoImpl implements employeeDao {
         }
         JDBC.Close();
         return flag;
+    }
+
+    @Override
+    public ArrayList<Employee> findMyInfById(int id) {
+        ArrayList<Employee> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate\n" +
+                    "FROM employee_inf AS e , dept_inf AS d, job_inf AS j\n" +
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`id`='" + id + "'");
+            while (rs.next()) {
+                Employee employeeobj = new Employee();
+                employeeobj.setId(rs.getInt("id"));
+                employeeobj.setName(rs.getString("name"));
+                employeeobj.setSex(rs.getString("sex"));
+                employeeobj.setNation(rs.getString("nation"));
+                employeeobj.setPolic(rs.getString("polic"));
+                employeeobj.setBorn(rs.getString("born"));
+                employeeobj.setTel(rs.getString("tel"));
+                employeeobj.setEmail(rs.getString("email"));
+                employeeobj.setEducation(rs.getString("education"));
+                employeeobj.setCard_id(rs.getString("card_id"));
+                employeeobj.setDept(rs.getString("dept"));
+                employeeobj.setJob(rs.getString("job"));
+                employeeobj.setCreatedate(rs.getString("createdate"));
+                list.add(employeeobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

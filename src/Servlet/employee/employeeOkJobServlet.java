@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/employeeOkJobServlet")
 public class employeeOkJobServlet extends HttpServlet {
@@ -36,10 +37,18 @@ public class employeeOkJobServlet extends HttpServlet {
 
         employeeDao employeeDao = new employeeDaoImpl();
 
+
         if (employeeDao.employeeOkJobUpdate(employeeOkJobId, deptid, jobid)) {
-            request.setAttribute("xiaoxi", "更新成功！");
-            request.getRequestDispatcher("/employeeFindAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('更新成功！');window.location='employeeFindAllServlet'</script>");
+            out.flush();
+            out.close();
         } else
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.print("<script language='javascript'>alert('更新失败！');window.location='employeeFindAllServlet'</script>");
+        out.flush();
+        out.close();
     }
 }

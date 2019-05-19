@@ -58,7 +58,54 @@ public class payDaoImpl implements payDao {
     }
 
     @Override
-    public ArrayList<Pay> findPayByMonth() {
-        return null;
+    public ArrayList<Pay> findPayByMonth(String month) {
+        ArrayList<Pay> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("select * from pay_inf where month='" + month + "'");
+            while (rs.next()) {
+                Pay payobj = new Pay();
+                payobj.setId(rs.getInt("id"));
+                payobj.setName(rs.getString("name"));
+                payobj.setDept(rs.getString("dept"));
+                payobj.setJob(rs.getString("job"));
+                payobj.setMonth(rs.getString("month"));
+                payobj.setSum(rs.getDouble("sum"));
+                payobj.setWuxian(rs.getDouble("wuxian"));
+                payobj.setShuihou(rs.getDouble("shuihou"));
+                payobj.setRealpay(rs.getDouble("realpay"));
+                list.add(payobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public ArrayList<Pay> findPayById(int id) {
+        ArrayList<Pay> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("select * from pay_inf where id='" + id + "'");
+            while (rs.next()) {
+                Pay payobj = new Pay();
+                payobj.setId(rs.getInt("id"));
+                payobj.setName(rs.getString("name"));
+                payobj.setDept(rs.getString("dept"));
+                payobj.setJob(rs.getString("job"));
+                payobj.setMonth(rs.getString("month"));
+                payobj.setSum(rs.getDouble("sum"));
+                payobj.setWuxian(rs.getDouble("wuxian"));
+                payobj.setShuihou(rs.getDouble("shuihou"));
+                payobj.setRealpay(rs.getDouble("realpay"));
+                list.add(payobj);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

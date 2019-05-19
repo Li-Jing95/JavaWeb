@@ -10,7 +10,6 @@
 <html>
 
 <body>
-<h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">
     <!--搜索栏-->
@@ -38,7 +37,7 @@
                     <tr>
                         <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>
                         <td><input type="text" value="${u.name}" name="name" size="10"></td>
-                        <td><input type="text" value="${u.remark}" name="remark" size="70" ></td>
+                        <td><input type="text" value="${u.remark}" name="remark" size="70" style="height: 20px"></td>
                         <td>
                             <a href="deptDeleteServlet?id=${u.id}">删除</a>
                             <input type="submit" value="更新"/>

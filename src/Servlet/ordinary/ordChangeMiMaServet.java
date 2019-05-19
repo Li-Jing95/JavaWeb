@@ -1,7 +1,7 @@
-package Servlet.job;
+package Servlet.ordinary;
 
-import dao.jobDao;
-import dao.jobDaoImpl;
+import dao.ordinaryDao;
+import dao.ordinaryDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,31 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/jobUpdateServlet")
-public class jobUpdateServlet extends HttpServlet {
+@WebServlet("/ordChangeMiMaServet")
+public class ordChangeMiMaServet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String id = request.getParameter("id");
-        int deptId = Integer.parseInt(id);
+        //获取表单传过来的数据
+        String pword = request.getParameter("newpsd");
+        ordinaryDao ordinaryDao = new ordinaryDaoImpl();
+        if (ordinaryDao.miMaUpdate(pword)) {
+//            request.setAttribute("xiaoxi","修改成功！");
+//            request.getRequestDispatcher("ordLogin.jsp").forward(request, response);
 
-        String name = request.getParameter("name");
-        String remark = request.getParameter("remark");
-
-        jobDao jobDao = new jobDaoImpl();
-        if (jobDao.JobUpdate(name, remark, deptId)) {
-//            request.setAttribute("xiaoxi", "更新成功！");
-//            request.getRequestDispatcher("/jobFindAllServlet").forward(request, response);
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('更新成功！');window.location='jobFindAllServlet'</script>");
+            out.print("<script language='javascript'>alert('修改成功！');window.location='ordLogin.jsp'</script>");
             out.flush();
             out.close();
         } else {
-            response.sendRedirect("UpdateFail.jsp");
+            response.sendRedirect("addUser.jsp");
         }
     }
 }

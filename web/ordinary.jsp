@@ -10,63 +10,61 @@
 <head>
     <link href="css/head.css" rel="stylesheet" type="text/css">
     <link href="css/table.css" rel="stylesheet" type="text/css">
+    <link href="css/iconfont.css" rel="stylesheet" type="text/css">
 </head>
 <script type="text/javascript" defer="defer"
         src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js">
 </script>
-<script src="js/jQuery.main.js"></script>
-<script type="text/javascript">
-    function getJobNameBySelectedDeptName(id) {//如果第一个下拉列表的值改变则调用此方法
-        if (id != null && "" != id && -1 != id) {
-            //通过ajax传入后台，把deptName数据传到后端
-            $.post("deptLinkJobServlet", {deptId: id}, function (res) {
-                var option;
-                option = "<option>" + "选择岗位" + "</option>";
-                $.each(res, function (i, n) {//循环，i为下标从0开始，n为集合中对应的第i个对象
-                    option += "<option value='" + n.id + "'>" + n.name + "</option>"
-                });
-                $("#jobNameList").html(option);//将循环拼接的字符串插入第二个下拉列表
-                $("#jobNameList").show();//把第二个下拉列表展示
-            });
-
-        } else {
-            $("#jobNameList").hide();
-        }
-    }
-</script>
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>
-    <a class="reindex" href="ok.jsp">返回首页</a>
-    <a class="loginout" href="login.jsp">退出登录</a>
+
+    <a class="loginout" href="ordLogin.jsp"><i class="iconfont icon-tuichudenglu">退出登录</i></a>
+    <a class="reindex" href="ordOk.jsp"><i class="iconfont icon-fanhuishouye">返回首页</i></a>
 </div>
 <div id="nav">
     <div class="dropdown">
         <ul class="score">
-            <li><span>查看信息</span>
+            <li><span class="iconfont icon-yuangong"> 查看信息</span>
                 <ol class="public">
                     <li>
                         <form action="ordDeptFindAllServlet" method="post">
-                            <input type="submit" value="部门列表" class="square">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="部门列表" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
                         <form action="ordJobFindAllServlet" method="post">
-                            <input type="submit" value="职位列表" class="square">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="职位列表" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
-                        <form action="ordEmployeeFindAllServlet" method="post">
-                            <input type="submit" value="员工列表" class="square">
+                        <form action="ordMyInfServlet" method="post">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="我的信息" class="square">
+                            </i>
                         </form>
                     </li>
                     <li>
-                        <form action="employeePayFindAllServlet" method="post">
-                            <input type="submit" value="员工薪资" class="square">
+                        <form action="ordMyPayServlet" method="post">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="我的工资" class="square">
+                            </i>
                         </form>
                     </li>
                 </ol>
+            </li>
+            <li>
+                <span class="iconfont icon-yuangong">
+                    <a href="ordChangeMiMa.jsp">修改密码</a>
+                </span>
+
+            </li>
         </ul>
+
     </div>
 </div>
 </body>

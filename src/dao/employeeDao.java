@@ -9,7 +9,7 @@ public interface employeeDao {
 
     boolean EmployeeDelete(int id);//删
 
-    boolean EmployeeUpdate(String name, String sex,String nation,String polic,String born, String tel, String email, String education, String card_id, String createdate, int id);//改
+    boolean EmployeeUpdate(String name, String sex, String nation, String polic, String born, String tel, String email, String education, String card_id, String createdate, int id);//改
 
     ArrayList<Employee> findEmployeeAll();//查
 
@@ -19,7 +19,7 @@ public interface employeeDao {
 
     ArrayList<Employee> findEmployeeOkJobListAll();//员工岗位列表
 
-    boolean employeeOkJobUpdate(int id,int dept_id,int job_id);
+    boolean employeeOkJobUpdate(int id, int dept_id, int job_id);
 
     ArrayList<Employee> findManOrWomanAll();//男女比例
 
@@ -31,9 +31,9 @@ public interface employeeDao {
 
     ArrayList<Employee> findEmployeeById(int id);//通过id值显示员工信息
 
-    boolean isOrNotId(int loginname);
+    boolean isOrNotId(int loginname);//入库之前先查看库中是否存在此数据
 
     boolean idAdd(int id);//入库
 
-
+    ArrayList<Employee> findMyInfById(int id);//通过登录名查找自己信息
 }

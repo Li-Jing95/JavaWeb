@@ -25,7 +25,7 @@
         <div class="user">
             <div id="yonghu"><img src="img/yhm.png"/>
             </div>
-            <input type="text" name="loginname" placeholder="用户名"/>
+            <input type="text" name="loginname" placeholder="管理员账号"/>
         </div>
         <div class="password">
             <div id="yonghuhu"><img src="img/mm.png"/></div>

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/registerServlet")
 public class registerServlet extends HttpServlet {
@@ -36,8 +37,13 @@ public class registerServlet extends HttpServlet {
         userDao dao = new userDaoImpl();
 
         if (dao.add(obj)) {
-            request.setAttribute("xiaoxi","添加成功！");
-            request.getRequestDispatcher("/findAllServlet").forward(request, response);
+//            request.setAttribute("xiaoxi","添加成功！");
+//            request.getRequestDispatcher("/findAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('添加成功！');window.location='findAllServlet'</script>");
+            out.flush();
+            out.close();
         } else {
             response.sendRedirect("addUser.jsp");
         }

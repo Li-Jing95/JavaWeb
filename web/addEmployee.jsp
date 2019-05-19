@@ -68,7 +68,7 @@
                             <select name="education" class="loginname">
                                 <option value="0">请选择</option>
                                 <option value="专科">专科</option>
-                                <option value="本科">专科</option>
+                                <option value="本科">本科</option>
                                 <option value="研究生">研究生</option>
                             </select>
                         </td>

@@ -1,22 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: Jing
-  Date: 2019/5/18
-  Time: 20:40
+  Date: 2019/5/19
+  Time: 13:17
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head>
-    <link href="css/head.css" rel="stylesheet" type="text/css">
-    <link href="css/table.css" rel="stylesheet" type="text/css">
-</head>
 <body>
-<h5>${xiaoxi}</h5>
-<%@ include file="public.jsp" %>
+<%@ include file="ordinary.jsp" %>
 <div id="section">
-    <!--搜索栏-->
     <div class="select">
         <center>
             <br><br>
@@ -26,6 +20,7 @@
             </form>
         </center>
     </div>
+    <br><br>
     <br><br>
     <!--显示列表-->
     <center>
@@ -59,3 +54,4 @@
 </div>
 </body>
 </html>
+

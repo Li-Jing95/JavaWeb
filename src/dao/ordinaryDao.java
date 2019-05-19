@@ -1,7 +1,6 @@
 package dao;
 
 import domain.Dept;
-import domain.Employee;
 import domain.Job;
 
 import java.util.ArrayList;
@@ -13,5 +12,6 @@ public interface ordinaryDao {
 
     ArrayList<Job> ordFindJobAll();//岗位
 
-    ArrayList<Employee> ordFindEmployeeAll();//员工
+    boolean miMaUpdate(String psd);//修改密码
+
 }

@@ -15,6 +15,6 @@ public interface userDao {
 
     ArrayList<User> findAll();//查
 
-    ArrayList findName(String name);//通过登录名查找
+    ArrayList<User> findName(String name);//通过登录名查找
 
 }

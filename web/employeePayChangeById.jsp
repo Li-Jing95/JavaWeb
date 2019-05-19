@@ -8,26 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<script type="text/javascript">
-    window.onload = function () {
-        var sum = document.getElementById("sum").value;
-        var wuxian1 = Number(sum) * 0.222;
-        document.getElementById("wuxian").value = wuxian1;
 
-        var shui1 = Number(sum) - Number(wuxian1);
-
-        if (shui1 >= 5000) {
-            var shuihou1 = Number(shui1) * 0.03;
-        } else {
-            var shuihou1 = 0;
-        }
-        alert(shuihou1);
-        document.getElementById("shuihou").value = shuihou1;
-
-        var realpay1 = Number(sum) - Number(wuxian1) - Number(shuihou1);
-        document.getElementById("realpay").value = realpay1;
-    };
-</script>
 <body>
 <%@ include file="public.jsp" %>
 <div id="section">
@@ -73,7 +54,7 @@
                                        placeholder="养老8%医疗2%失业0.2%住房12%"></td>
                         </tr>
                         <tr>
-                            <td align="center" class="submit">税后</td>
+                            <td align="center" class="submit">税（3%）</td>
                             <td><input type="text" name="shuihou" id="shuihou" class="loginname" placeholder="税率3%">
                             </td>
                         </tr>

@@ -1,7 +1,6 @@
 package dao;
 
 import domain.Dept;
-import domain.Employee;
 import domain.Job;
 import erp.JDBC;
 
@@ -71,30 +70,16 @@ public class ordinaryDaoImpl implements ordinaryDao {
     }
 
     @Override
-    public ArrayList<Employee> ordFindEmployeeAll() {
-        ArrayList<Employee> employeelist = new ArrayList<>();
-        try {
-            JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.tel,e.email,e.education,d.`name` AS dept,j.`name` AS job" +
-                    "FROM employee_inf AS e , dept_inf AS d, job_inf AS j" +
-                    "WHERE e.dept_id=d.id AND e.job_id=j.id;");
-            while (rs.next()) {
-                Employee employeeobj = new Employee();
-                employeeobj.setId(rs.getInt("id"));
-                employeeobj.setName(rs.getString("name"));
-                employeeobj.setSex(rs.getString("sex"));
-                employeeobj.setNation(rs.getString("nation"));
-                employeeobj.setTel(rs.getString("tel"));
-                employeeobj.setEmail(rs.getString("email"));
-                employeeobj.setEducation(rs.getString("education"));
-                employeeobj.setDept(rs.getString("dept"));
-                employeeobj.setJob(rs.getString("job"));
-                employeelist.add(employeeobj);
-            }
-            JDBC.Close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public boolean miMaUpdate(String psd) {
+        boolean flag = false;
+        JDBC.getCon();
+        String sql = "update orduser_inf set password='" + psd + "'";
+        int i = JDBC.addUpdDel(sql);
+        if (i > 0) {
+            flag = true;
         }
-        return employeelist;
+        JDBC.Close();
+        return flag;
     }
+
 }

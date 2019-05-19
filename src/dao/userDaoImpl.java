@@ -42,7 +42,7 @@ public class userDaoImpl implements userDao {
 //        }
 //        JDBC.Close();
 //        return flag;
-        return JDBC.addUpdDel(s)>0;
+        return JDBC.addUpdDel(s) > 0;
     }
 
     //删除
@@ -101,7 +101,7 @@ public class userDaoImpl implements userDao {
     }
 
     @Override
-    public ArrayList findName(String loginname) {
+    public ArrayList<User> findName(String loginname) {
         ArrayList<User> listloginname = new ArrayList<>();
         try {
             JDBC.getCon();

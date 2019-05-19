@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/updateServlet")
 public class updateServlet extends HttpServlet {
@@ -30,6 +31,12 @@ public class updateServlet extends HttpServlet {
         if (dao.update(loginname, password, createdate, username, userId)) {
             request.setAttribute("xiaoxi", "更新成功！");
             request.getRequestDispatcher("/findAllServlet").forward(request, response);
+
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('更新成功！');window.location='findAllServlet'</script>");
+            out.flush();
+            out.close();
         } else {
             response.sendRedirect("UpdateFail.jsp");
         }

@@ -2,14 +2,13 @@ package Servlet.ordinary;
 
 import dao.ordinaryDao;
 import dao.ordinaryDaoImpl;
-import dao.userDao;
-import dao.userDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -23,6 +22,8 @@ public class ordLoginServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         //获取表单传过来的数据
         String User = request.getParameter("loginname");
+        HttpSession session = request.getSession();
+        session.setAttribute("login", User);
         String Password = request.getParameter("password");
         //将获取到的数据与数据库的数据进行判断
         ordinaryDao ordinaryDao =new ordinaryDaoImpl();

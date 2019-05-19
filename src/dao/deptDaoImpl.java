@@ -28,7 +28,8 @@ public class deptDaoImpl implements deptDao {
     public boolean DeptDelete(int id) {
         boolean flag = false;
         JDBC.getCon();
-        String sql = "DELETE d.*, j.* FROM dept_inf as d INNER JOIN job_inf AS j ON d.id=j.id;";
+//        String sql = "DELETE d.*, j.* FROM dept_inf as d INNER JOIN job_inf AS j ON d.id=j.id where d.id='"+id+"'";
+        String sql = "Delete  from dept_inf where id=" + id + "";
         int i = JDBC.addUpdDel(sql);
         if (i > 0) {
             flag = true;
@@ -73,7 +74,7 @@ public class deptDaoImpl implements deptDao {
     }
 
     @Override
-    public ArrayList findDeptByName(String name) {
+    public ArrayList<Dept> findDeptByName(String name) {
         ArrayList<Dept> listdeptname = new ArrayList<>();
         try {
             JDBC.getCon();

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet("/deleteServlet")
 public class deleteServlet extends HttpServlet {
@@ -23,12 +24,18 @@ public class deleteServlet extends HttpServlet {
         //将获取到的数据与数据库的数据进行判断
         userDao dao = new userDaoImpl();
         if (dao.delete(userId)) {
-            request.setAttribute("xiaoxi","删除成功！");
-            request.getRequestDispatcher("/findAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('删除成功！');window.location='findAllServlet'</script>");
+            out.flush();
+            out.close();
         }
         else {
-            request.setAttribute("xiaoxi","删除失败！");
-            request.getRequestDispatcher("/findAllServlet").forward(request, response);
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('删除成功！');window.location='findAllServlet'</script>");
+            out.flush();
+            out.close();
         }
     }
 }

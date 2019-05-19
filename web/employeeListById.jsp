@@ -28,10 +28,14 @@
                         <tr>
                             <td align="center" class="submit">性别</td>
                             <td>
-                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                <input type="radio" name="sex" value="男">男
-                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                <input type="radio" name="sex" value="女">女
+                                    <%--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<!--这有空格不能删除-->--%>
+                                    <%--<input type="radio" name="sex" value="男">男--%>
+                                    <%--&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<!--这有空格不能删除-->--%>
+                                    <%--<input type="radio" name="sex" value="女">女--%>
+                                <select name="sex" value="${u.sex}" class="loginname">
+                                    <option value="男" <c:if test="${'男' eq u.sex}">selected</c:if>>男</option>
+                                    <option value="女" <c:if test="${'女' eq u.sex}">selected</c:if>>女</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -41,11 +45,10 @@
                         <tr>
                             <td align="center" class="submit">政治面貌</td>
                             <td>
-                                <select name="polic" class="loginname">
-                                    <option value="0">请选择</option>
-                                    <option value="群众">群众</option>
-                                    <option value="团员">团员</option>
-                                    <option value="党员">党员</option>
+                                <select name="polic" value="${u.polic}" class="loginname">
+                                    <option value="群众" <c:if test="${'群众' eq u.polic}">selected</c:if>>群众</option>
+                                    <option value="团员" <c:if test="${'团员' eq u.polic}">selected</c:if>>团员</option>
+                                    <option value="党员" <c:if test="${'党员' eq u.polic}">selected</c:if>>党员</option>
                                 </select>
                             </td>
                         </tr>
@@ -64,11 +67,11 @@
                         <tr>
                             <td align="center" class="submit">学历</td>
                             <td>
-                                <select name="education" class="loginname">
-                                    <option value="0">请选择</option>
-                                    <option value="专科">专科</option>
-                                    <option value="本科">专科</option>
-                                    <option value="研究生">研究生</option>
+                                <select name="education" value="${u.education}" class="loginname">
+                                    <option value="专科" <c:if test="${'专科' eq u.education}">selected</c:if>>专科</option>
+                                    <option value="本科" <c:if test="${'本科' eq u.education}">selected</c:if>>专科</option>
+                                    <option value="研究生" <c:if test="${'研究生' eq u.education}">selected</c:if>>研究生
+                                    </option>
                                 </select>
                             </td>
                         </tr>

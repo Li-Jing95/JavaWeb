@@ -28,6 +28,7 @@
             </c:forEach>
         </table>
     </center>
+
 </div>
 </body>
 </html>

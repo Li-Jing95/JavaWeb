@@ -15,7 +15,7 @@
     <div class="select">
         <center>
             <br><br>
-            <form action="deptSelectServlet" method="post">
+            <form action="ordDeptSelectServlet" method="post">
                 <input type="text" name="name" placeholder="请输入要查找的部门名称" class="loginname">
                 <input type="submit" value="搜索" class="submit">
             </form>

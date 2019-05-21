@@ -57,7 +57,7 @@
                 </ol>
             </li>
             <li>
-                <span class="iconfont icon-yuangong">
+                <span class="iconfont icon-yuangongguanli">
                     <a href="ordChangeMiMa.jsp">修改密码</a>
                 </span>
             </li>

@@ -54,6 +54,16 @@
         document.getElementById("realpay").value = realpay1;
     };
 </script>
+<script type="text/javascript">
+    function isOrNotTel() {
+        reg = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$";
+        var inputtel = document.getElementById("tel").value;
+        if (!reg.test(inputtel)) {
+            alert("手机号格式不正确，请重新输入！");
+            document.getElementById("tel").value = "";
+        }
+    }
+</script>
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>
@@ -81,19 +91,19 @@
                     </li>
                 </ol>
             </li>
-            <li><span class="iconfont icon-zhiwei"> 职位管理</span>
+            <li><span class="iconfont icon-zhiwei"> 岗位管理</span>
                 <ol class="public">
                     <li>
                         <form action="jobFindAllServlet" method="post">
                             <i class="iconfont icon-liebiao">
-                                <input type="submit" value="职位列表" class="square">
+                                <input type="submit" value="岗位列表" class="square">
                             </i>
                         </form>
                     </li>
                     <li>
                         <form action="addJob.jsp" method="post">
                             <i class="iconfont icon-tianjia">
-                                <input type="submit" value="添加职位" class="square">
+                                <input type="submit" value="添加岗位" class="square">
                             </i>
                         </form>
                     </li>
@@ -168,7 +178,7 @@
                     <li>
                         <form action="politicalLevelServlet" method="post">
                             <i class="iconfont icon-zhengzhi">
-                                <input type="submit" value="政治层次" class="square">
+                                <input type="submit" value="政治水平" class="square">
                             </i>
                         </form>
                     </li>

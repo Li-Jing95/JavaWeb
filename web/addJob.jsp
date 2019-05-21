@@ -45,7 +45,7 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">职位名称</td>
-                        <td><input type="text" name="name" class="loginname"></td>
+                        <td><input type="text" name="name" class="loginname" required="required"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">职位描述</td>

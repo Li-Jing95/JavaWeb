@@ -23,20 +23,20 @@
                 <table>
                     <tr>
                         <td align="center" class="submit">姓名</td>
-                        <td><input type="text" name="name" class="loginname"></td>
+                        <td><input type="text" name="name" class="loginname" required="required"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">性别</td>
                         <td>
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<!--这儿有空格不能删除-->
-                            <input type="radio" name="sex" value="男">男
+                            <input type="radio" name="sex" value="男" required="required">男
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<!--这儿有空格不能删除-->
-                            <input type="radio" name="sex" value="女">女
+                            <input type="radio" name="sex" value="女" required="required">女
                         </td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">民族</td>
-                        <td><input type="text" name="nation" class="loginname"></td>
+                        <td><input type="text" name="nation" class="loginname" required="required"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">政治面貌</td>
@@ -51,15 +51,15 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">出生日期</td>
-                        <td><input type="text" name="born" class="loginname"></td>
+                        <td><input type="text" name="born" class="loginname" required="required"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">电话</td>
-                        <td><input type="text" name="tel" class="loginname"></td>
+                        <td><input type="text" name="tel" id="tel" class="loginname" required="required"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">邮箱</td>
-                        <td><input type="text" name="email" class="loginname"></td>
+                        <td><input type="text" name="email" class="loginname" required="required"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">学历</td>
@@ -102,7 +102,8 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">建档日期</td>
-                        <td><input type="text" name="createdate" onfocus="WdatePicker()" class="loginname"></td>
+                        <td><input type="text" name="createdate" onfocus="WdatePicker()" class="loginname"
+                                   required="required"></td>
                     </tr>
 
                 </table>

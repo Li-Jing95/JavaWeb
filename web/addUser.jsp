@@ -24,12 +24,12 @@
                     <!--登录名-->
                     <tr>
                         <td align="center" class="submit">登录名</td>
-                        <td><input type="text" name="loginname" class="loginname"></td>
+                        <td><input type="text" name="loginname" class="loginname" required="required"></td>
                     </tr>
                     <!--密码-->
                     <tr>
                         <td align="center" class="submit">密码</td>
-                        <td><input type="password" name="password" class="loginname"></td>
+                        <td><input type="password" name="password" class="loginname" required="required"></td>
                     </tr>
                     <!--创建日期-->
                     <tr>

@@ -29,9 +29,8 @@ public class updateServlet extends HttpServlet {
 
         userDao dao = new userDaoImpl();
         if (dao.update(loginname, password, createdate, username, userId)) {
-            request.setAttribute("xiaoxi", "更新成功！");
-            request.getRequestDispatcher("/findAllServlet").forward(request, response);
-
+//            request.setAttribute("xiaoxi", "更新成功！");
+//            request.getRequestDispatcher("/findAllServlet").forward(request, response);
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
             out.print("<script language='javascript'>alert('更新成功！');window.location='findAllServlet'</script>");

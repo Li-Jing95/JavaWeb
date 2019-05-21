@@ -2,6 +2,7 @@ package dao;
 
 import domain.Dept;
 import domain.Job;
+import domain.ordUser;
 import erp.JDBC;
 
 import java.sql.ResultSet;
@@ -74,6 +75,56 @@ public class ordinaryDaoImpl implements ordinaryDao {
         boolean flag = false;
         JDBC.getCon();
         String sql = "update orduser_inf set password='" + psd + "'";
+        int i = JDBC.addUpdDel(sql);
+        if (i > 0) {
+            flag = true;
+        }
+        JDBC.Close();
+        return flag;
+    }
+
+    @Override
+    public ArrayList<ordUser> ordPsdFindAll() {
+        ArrayList<ordUser> list = new ArrayList<>();
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT * FROM orduser_inf;");
+            while (rs.next()) {
+                ordUser ordUser = new ordUser();
+                ordUser.setId(rs.getInt("id"));
+                ordUser.setLoginname(rs.getString("loginname"));
+                ordUser.setPassword(rs.getString("password"));
+                list.add(ordUser);
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public boolean ordMiMaUpdate(String name, String password, int loginid) {
+        boolean flag = false;
+        JDBC.getCon();
+        String sql = "update orduser_inf set " +
+                "loginname='" + name +
+                "',password='" + password +
+                "' where id='" + loginid + "'";
+        int i = JDBC.addUpdDel(sql);
+        System.out.println(i);
+        if (i > 0) {
+            flag = true;
+        }
+        JDBC.Close();
+        return flag;
+    }
+
+    @Override
+    public boolean deleteOrdMiMa(int id) {
+        boolean flag = false;
+        JDBC.getCon();
+        String sql = "delete from orduser_inf where id='" + id + "'";
         int i = JDBC.addUpdDel(sql);
         if (i > 0) {
             flag = true;

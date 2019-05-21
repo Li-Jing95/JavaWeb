@@ -184,6 +184,17 @@
                     </li>
                 </ol>
             </li>
+            <li><span class="iconfont icon-zhanghaoguanli"> 账号管理</span>
+                <ol class="public">
+                    <li>
+                        <form action="userPsdFindAllServlet" method="post">
+                            <i class="iconfont icon-liebiao">
+                                <input type="submit" value="账号列表" class="square">
+                            </i>
+                        </form>
+                    </li>
+                </ol>
+            </li>
             <li><span class="iconfont icon-yuangongguanli"> 用户管理</span>
                 <ol class="public">
                     <li>

@@ -19,7 +19,7 @@
                 <table>
                     <c:forEach var="u" items="${findall}">
                         <tr>
-                            <td align="center" class="submit">员工ID</td>
+                            <td align="center" class="submit">工号</td>
                             <td><input type="text" value="${u.id}" name="id" readonly="readonly" class="loginname"></td>
                         </tr>
                         <tr>

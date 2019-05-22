@@ -28,7 +28,7 @@
     <center>
         <table class="gridtable">
             <tr>
-                <th>员工编号</th>
+                <th>工号</th>
                 <th>姓名</th>
                 <th>性别</th>
                 <th>民族</th>

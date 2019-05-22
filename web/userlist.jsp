@@ -29,7 +29,7 @@
                 <th>ID</th>
                 <th>登录名</th>
                 <th>密码</th>
-                <th>注册日期</th>
+                <th>建档日期</th>
                 <th>用户名</th>
                 <th>操作</th>
             </tr>

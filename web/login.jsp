@@ -25,11 +25,11 @@
         <div class="user">
             <div id="yonghu"><img src="img/yhm.png"/>
             </div>
-            <input type="text" name="loginname" placeholder="管理员账号"/>
+            <input type="text" name="loginname" placeholder="管理员账号" required="required"/>
         </div>
         <div class="password">
             <div id="yonghuhu"><img src="img/mm.png"/></div>
-            <input type="password" name="password" placeholder="密码"/>
+            <input type="password" name="password" placeholder="密码" required="required"/>
         </div>
         <input class="btn" type="submit" value="登录"/>
     </form>

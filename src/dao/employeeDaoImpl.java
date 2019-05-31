@@ -14,6 +14,7 @@ public class employeeDaoImpl implements employeeDao {
     public boolean EmployeeAdd(Employee obj) {
         boolean flag = false;
         JDBC.getCon();
+
         String s = "insert into employee_inf(name,sex,nation,polic,born,tel,email,education,card_id,dept_id,job_id,createdate)" + " values(" +
                 "'" + obj.getName() +
                 "','" + obj.getSex() +
@@ -27,12 +28,13 @@ public class employeeDaoImpl implements employeeDao {
                 "','" + obj.getDept_id() +
                 "','" + obj.getJob_id() +
                 "','" + obj.getCreatedate() + "')";
-        int i = JDBC.addUpdDel(s);
-        if (i > 0) {
-            flag = true;
-        }
-        JDBC.Close();
-        return flag;
+//        int i = JDBC.addUpdDel(s);
+//        if (i > 0) {
+//            flag = true;
+//        }
+//        JDBC.Close();
+//        return flag;
+        return JDBC.addUpdDel(s) > 0;
     }
 
     @Override

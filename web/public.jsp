@@ -54,16 +54,7 @@
         document.getElementById("realpay").value = realpay1;
     };
 </script>
-<script type="text/javascript">
-    function isOrNotTel() {
-        reg = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$";
-        var inputtel = document.getElementById("tel").value;
-        if (!reg.test(inputtel)) {
-            alert("手机号格式不正确，请重新输入！");
-            document.getElementById("tel").value = "";
-        }
-    }
-</script>
+
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>

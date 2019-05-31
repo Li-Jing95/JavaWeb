@@ -59,7 +59,7 @@
                         <td><input type="text" value="${u.card_id}" name="card_id" readonly="readonly" size="12"></td>
                         <td><input type="text" value="${u.dept}" name="dept" readonly="readonly" size="3"></td>
                         <td><input type="text" value="${u.job}" name="job" readonly="readonly" size="5"></td>
-                        <td><input type="text" value="${u.createdate}" readonly="readonly" name="createdate" size="8">
+                        <td><input type="text" value="${u.createdate}" readonly="readonly" name="createdate" size="5">
                         </td>
                         <td>
                             <a href="employeeDeleteServlet?id=${u.id}">删除</a>

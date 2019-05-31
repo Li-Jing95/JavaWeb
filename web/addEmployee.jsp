@@ -11,7 +11,39 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--<script type="text/javascript">--%>
+<%--function isOrNotTel() {--%>
+<%--reg = "^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$";--%>
+<%--var inputtel = document.getElementById("tel").value;--%>
+<%--if (!(reg.test(inputtel))) {--%>
+<%--alert("手机号格式不正确，请重新输入！");--%>
+<%--return false;--%>
+<%--}--%>
+<%--}--%>
+<%--</script>--%>
+<script type="text/javascript">
+    function chMobilePhone(src) {
+        if (/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(src)) {
+            alert('手机号码规范');
+            // return true;
 
+        } else {
+            alert("手机号码不规范");
+            document.getElementById('tel').value = "";
+        }
+    }
+
+    function check() {
+        var oval = document.getElementById('tel').value;
+        if (oval.length == 11) {
+            chMobilePhone(oval);
+        }
+        else {
+            alert("手机号位数不对,请重新输入");
+            document.getElementById('tel').value = "";
+        }
+    }
+</script>
 <html>
 <body>
 <%@ include file="public.jsp" %>
@@ -36,7 +68,7 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">民族</td>
-                        <td><input type="text" name="nation" class="loginname" required="required"></td>
+                        <td><input type="text" name="nation" class="loginname"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">政治面貌</td>
@@ -51,15 +83,15 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">出生日期</td>
-                        <td><input type="text" name="born" class="loginname" required="required"></td>
+                        <td><input type="text" name="born" class="loginname"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">电话</td>
-                        <td><input type="text" name="tel" id="tel" class="loginname" required="required"></td>
+                        <td><input type="text" name="tel" id="tel" class="loginname" onblur="check()"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">邮箱</td>
-                        <td><input type="text" name="email" class="loginname" required="required"></td>
+                        <td><input type="text" name="email" class="loginname"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">学历</td>
@@ -102,8 +134,7 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">建档日期</td>
-                        <td><input type="text" name="createdate" onfocus="WdatePicker()" class="loginname"
-                                   required="required"></td>
+                        <td><input type="text" name="createdate" onfocus="WdatePicker()" class="loginname"></td>
                     </tr>
 
                 </table>

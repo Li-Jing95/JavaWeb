@@ -110,11 +110,11 @@ public class payDaoImpl implements payDao {
     }
 
     @Override
-    public boolean isOrNotHaveMonth(String month) {
+    public boolean isOrNotHaveMonth(String month, int id) {
         boolean flag = false;
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("SELECT * from pay_inf AS p WHERE p.`month`='" + month + "'");
+            ResultSet rs = JDBC.selectSql("SELECT * from pay_inf AS p WHERE p.`month`='" + month + "' AND p.id='" + id + "'");
             while (rs.next()) {
                 flag = true;
             }

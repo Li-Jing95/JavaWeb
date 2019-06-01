@@ -39,17 +39,13 @@
         var sum = document.getElementById("sum").value;
         var wuxian1 = Number(sum) * 0.222;
         document.getElementById("wuxian").value = wuxian1;
-
         var shui1 = Number(sum) - Number(wuxian1);
-
         if (shui1 >= 5000) {
             var shuihou1 = Number(shui1) * 0.03;
         } else {
             var shuihou1 = 0;
         }
-
         document.getElementById("shuihou").value = shuihou1;
-
         var realpay1 = Number(sum) - Number(wuxian1) - Number(shuihou1);
         document.getElementById("realpay").value = realpay1;
     };

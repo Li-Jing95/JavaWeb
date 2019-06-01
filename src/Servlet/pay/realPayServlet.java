@@ -51,8 +51,8 @@ public class realPayServlet extends HttpServlet {
 
         payDao payDao = new payDaoImpl();
 
-        if (payDao.isOrNotHaveMonth(month)) {
-            System.out.println(payDao.isOrNotHaveMonth(month));
+        if (payDao.isOrNotHaveMonth(month, id)) {
+            System.out.println(payDao.isOrNotHaveMonth(month, id));
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
             out.print("<script language='javascript'>alert('此月薪资已添加，请勿重复操作！');window.location='employeePayFindAllServlet'</script>");

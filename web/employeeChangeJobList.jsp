@@ -29,6 +29,20 @@
             $("#jobNameList").hide();//隐藏对象不生效
         }
     }
+
+    //判断选择下拉列表是否为空
+    function fun2() {
+        var dept = document.getElementById("dept").value;
+        var job = document.getElementById("jobNameList").value;
+        if (dept == "") {
+            alert("部门选择不能为空");
+            return false;
+        }
+        if (job == "") {
+            alert("岗位选择不能为空");
+            return false;
+        }
+    }
 </script>
 <body>
 <%@ include file="public.jsp" %>
@@ -55,13 +69,13 @@
                 <th>操作</th>
             </tr>
             <c:forEach var="u" items="${findall}">
-                <form action="employeeOkJobServlet" method="post">
+                <form action="employeeOkJobServlet" method="post" target="test">
                     <tr>
                         <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
                         <td><input type="text" value="${u.name}" name="name" readonly="readonly" size="3"></td>
                         <td>
                             <select onchange="getJobNameBySelectedDeptName(this.value)" id="dept" name="brand">
-                                <option>选择部门</option>
+                                <option value="">选择部门</option>
                                 <%
                                     deptDao deptDao = new deptDaoImpl();
                                     ArrayList<Dept> list = deptDao.findNameAll();
@@ -77,13 +91,14 @@
                             </select>
                         </td>
                         <td>
-                            <input type="submit" value="确定"/>
+                            <input type="submit" value="确定" onclick="fun2()"/>
                             <a href="employeeFindAllServlet">
                                 <input type="button" value="取消" class="submit">
                             </a>
                         </td>
                     </tr>
                 </form>
+                <iframe name="test" style="display:none"></iframe>
             </c:forEach>
         </table>
     </center>

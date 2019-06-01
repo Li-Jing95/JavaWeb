@@ -27,7 +27,24 @@
         }
     }
 </script>
-
+<script type="text/javascript">
+    function getJobNameBySelectedDeptName(id) {//如果第一个下拉列表的值改变则调用此方法
+        if (id != null && "" != id && -1 != id) {
+            //通过ajax传入后台，把deptName数据传到后端
+            $.post("deptLinkJobServlet", {deptId: id}, function (res) {
+                var option;
+                option = "<option>" + "选择岗位" + "</option>";
+                $.each(res, function (i, n) {//循环，i为下标从0开始，n为集合中对应的第i个对象
+                    option += "<option value='" + n.id + "'>" + n.name + "</option>"
+                });
+                $("#jobNameList").html(option);//将循环拼接的字符串插入第二个下拉列表
+                $("#jobNameList").show();//把第二个下拉列表展示
+            });
+        } else {
+            $("#jobNameList").hide();//隐藏对象不生效
+        }
+    }
+</script>
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>

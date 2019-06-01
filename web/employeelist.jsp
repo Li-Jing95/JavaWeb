@@ -10,7 +10,6 @@
 <html>
 
 <body>
-<h5>${xiaoxi}</h5>
 <%@ include file="public.jsp" %>
 <div id="section">
     <!--搜索栏-->
@@ -73,6 +72,7 @@
             </c:forEach>
         </table>
     </center>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--这有空格不能删除-->
     <center>
         <div class="gridItem">
             <!--style="padding: 5px; width: 250px; float: left; text-align: left; height: 20px; font-size: 15px; margin: 0 auto;"-->
@@ -113,7 +113,7 @@
                 last();
             }
             else {
-                hideTable();
+                hideTable();//隐藏所有行
                 page = txtValue2;
                 pageNum2.value = page;
 

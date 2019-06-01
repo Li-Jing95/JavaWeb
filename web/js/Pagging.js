@@ -8,7 +8,7 @@ var spanPre = document.getElementById("spanPre");//上一页
 var spanNext = document.getElementById("spanNext");//下一页
 var spanFirst = document.getElementById("spanFirst");//首页
 var spanLast = document.getElementById("spanLast");//尾页
-var pageSize = 5;//每页信息条数
+var pageSize = 7;//每页信息条数
 
 var numberRowsInTable = theTable.rows.length - 1;//表格最大行数
 

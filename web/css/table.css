@@ -62,11 +62,11 @@ table.gridtable td {
     /*position:absolute;left:100px; height:100px;*/
 }
 
-.gridItem {
-    /*margin: 0 auto;*/
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /*position: fixed;*/
-}
+/*.gridItem {*/
+/*!*margin: 0 auto;*!*/
+/*position: absolute;*/
+/*bottom: 0;*/
+/*left: 0;*/
+/*right: 0;*/
+/*!*position: fixed;*!*/
+/*}*/

@@ -21,6 +21,7 @@
 <%--}--%>
 <%--}--%>
 <%--</script>--%>
+<html>
 <script type="text/javascript">
     function chMobilePhone(src) {
         if (/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(src)) {
@@ -44,7 +45,7 @@
         }
     }
 </script>
-<html>
+
 <body>
 <%@ include file="public.jsp" %>
 <div id="section">

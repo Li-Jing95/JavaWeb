@@ -40,8 +40,8 @@
                 <form action="jobPayUpdateServlet" method="post">
                     <tr>
                         <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>
-                        <td><input type="text" value="${u.name}" name="name" size="10"></td>
-                        <td><input type="text" value="${u.remark}" name="remark" size="70"></td>
+                        <td><input type="text" value="${u.name}" name="name" readonly="readonly" size="10"></td>
+                        <td><input type="text" value="${u.remark}" name="remark" readonly="readonly" size="70"></td>
                         <td><input type="text" value="${u.jobpay}" name="jobpay" size="10"></td>
                         <td>
                             <input type="submit" value="更新"/>

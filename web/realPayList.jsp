@@ -12,6 +12,7 @@
     <link href="css/head.css" rel="stylesheet" type="text/css">
     <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 <%@ include file="public.jsp" %>
 <div id="section">
@@ -43,14 +44,14 @@
             <c:forEach var="u" items="${findall}">
                 <tr>
                     <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>
-                    <td><input type="text" value="${u.name}" name="name" size="10"></td>
-                    <td><input type="text" value="${u.dept}" name="remark" size="10"></td>
-                    <td><input type="text" value="${u.job}" name="localpay" size="10"></td>
-                    <td><input type="text" value="${u.month}" name="localpay" size="10"></td>
-                    <td><input type="text" value="${u.sum}" name="localpay" size="10"></td>
-                    <td><input type="text" value="${u.wuxian}" name="localpay" size="10"></td>
-                    <td><input type="text" value="${u.shuihou}" name="localpay" size="10"></td>
-                    <td><input type="text" value="${u.realpay}" name="localpay" size="10"></td>
+                    <td><input type="text" value="${u.name}" name="name" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.dept}" name="remark" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.job}" name="localpay" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.month}" name="localpay" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.sum}" name="localpay" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.wuxian}" name="localpay" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.shuihou}" name="localpay" readonly="readonly" size="10"></td>
+                    <td><input type="text" value="${u.realpay}" name="localpay" readonly="readonly" size="10"></td>
                 </tr>
             </c:forEach>
         </table>

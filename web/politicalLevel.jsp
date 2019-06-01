@@ -23,7 +23,7 @@
             <c:forEach var="u" items="${findall}">
                 <tr>
                     <td><input type="text" value="${u.polic}" name="polic" readonly="readonly" size="5"></td>
-                    <td><input type="text" value="${u.count}" name="count" size="10"></td>
+                    <td><input type="text" value="${u.count}" name="count" readonly="readonly" size="10"></td>
                 </tr>
             </c:forEach>
         </table>

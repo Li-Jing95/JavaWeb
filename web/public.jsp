@@ -16,45 +16,22 @@
         src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js">
 </script>
 <script src="js/jQuery.main.js"></script>
+
+
 <script type="text/javascript">
-    function getJobNameBySelectedDeptName(id) {//如果第一个下拉列表的值改变则调用此方法
-        if (id != null && "" != id && -1 != id) {
-            //通过ajax传入后台，把deptName数据传到后端
-            $.post("deptLinkJobServlet", {deptId: id}, function (res) {
-                var option;
-                option = "<option>" + "选择岗位" + "</option>";
-                $.each(res, function (i, n) {//循环，i为下标从0开始，n为集合中对应的第i个对象
-                    option += "<option value='" + n.id + "'>" + n.name + "</option>"
-                });
-                $("#jobNameList").html(option);//将循环拼接的字符串插入第二个下拉列表
-                $("#jobNameList").show();//把第二个下拉列表展示
-            });
+    function fun1() {
+        if (confirm("是否退出此系统？")) {
+            location.href = 'login.jsp';
         } else {
-            $("#jobNameList").hide();//隐藏对象不生效
+            return false;
         }
     }
-</script>
-<script type="text/javascript">
-    window.onload = function () {
-        var sum = document.getElementById("sum").value;
-        var wuxian1 = Number(sum) * 0.222;
-        document.getElementById("wuxian").value = wuxian1;
-        var shui1 = Number(sum) - Number(wuxian1);
-        if (shui1 >= 5000) {
-            var shuihou1 = Number(shui1) * 0.03;
-        } else {
-            var shuihou1 = 0;
-        }
-        document.getElementById("shuihou").value = shuihou1;
-        var realpay1 = Number(sum) - Number(wuxian1) - Number(shuihou1);
-        document.getElementById("realpay").value = realpay1;
-    };
 </script>
 
 <body>
 <div id="header">
     <h2>企业人事管理系统</h2>
-    <a class="loginout" href="login.jsp"><i class="iconfont icon-tuichudenglu">退出登录</i></a>
+    <a class="loginout" onclick="fun1()"><i class="iconfont icon-tuichudenglu">退出登录</i></a>
     <a class="reindex" href="ok.jsp"><i class="iconfont icon-fanhuishouye">返回首页</i></a>
 </div>
 <div id="nav">

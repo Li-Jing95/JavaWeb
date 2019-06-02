@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 @WebServlet("/ordJobSelectServlet")
@@ -23,9 +24,16 @@ public class ordJobSelectServlet extends HttpServlet {
         String name = request.getParameter("selectname");
 
         jobDao jobDao = new jobDaoImpl();
-
-        ArrayList<Job> list = jobDao.findJobName(name);
-        request.setAttribute("findall", list);
-        request.getRequestDispatcher("/ordJobList.jsp").forward(request, response);
+        if (jobDao.findJobByName(name)) {
+            ArrayList<Job> list = jobDao.findJobName(name);
+            request.setAttribute("findall", list);
+            request.getRequestDispatcher("/ordJobList.jsp").forward(request, response);
+        } else {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('查询数据为空！');window.location='ordJobFindAllServlet'</script>");
+            out.flush();
+            out.close();
+        }
     }
 }

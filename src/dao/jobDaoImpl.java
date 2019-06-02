@@ -75,6 +75,23 @@ public class jobDaoImpl implements jobDao {
     }
 
     @Override
+    public boolean findJobByName(String name) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name='" + name + "'");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    @Override
     public ArrayList<Job> findJobName(String name) {
         ArrayList<Job> listjobname = new ArrayList<>();
         try {

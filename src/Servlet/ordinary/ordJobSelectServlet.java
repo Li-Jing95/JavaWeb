@@ -20,9 +20,10 @@ public class ordJobSelectServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
-        String name = request.getParameter("name");
+        String name = request.getParameter("selectname");
 
         jobDao jobDao = new jobDaoImpl();
+
         ArrayList<Job> list = jobDao.findJobName(name);
         request.setAttribute("findall", list);
         request.getRequestDispatcher("/ordJobList.jsp").forward(request, response);

@@ -26,15 +26,18 @@
     <center>
         <table class="gridtable">
             <tr>
-                <th>ID</th>
-                <th>部门名称</th>
-                <th>部门描述</th>
+                <th width="80px">ID</th>
+                <th width="80px">部门名称</th>
+                <th width="80px">部门描述</th>
             </tr>
             <c:forEach var="u" items="${findall}">
                 <tr>
-                    <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>
-                    <td><input type="text" value="${u.name}" name="name" size="10"></td>
-                    <td><input type="text" value="${u.remark}" name="remark" size="70"></td>
+                        <%--<td><input type="text" value="${u.id}" name="id" readonly="readonly" size="5"></td>--%>
+                        <%--<td><input type="text" value="${u.name}" name="name" size="10"></td>--%>
+                        <%--<td><input type="text" value="${u.remark}" name="remark" size="70"></td>--%>
+                    <td align="center" valign="center">${u.id}</td>
+                    <td align="center" valign="center">${u.name}</td>
+                    <td align="center" valign="center">${u.remark}</td>
                 </tr>
             </c:forEach>
         </table>

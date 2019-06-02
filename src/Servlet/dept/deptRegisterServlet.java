@@ -40,7 +40,11 @@ public class deptRegisterServlet extends HttpServlet {
             out.flush();
             out.close();
         } else {
-            response.sendRedirect("addUser.jsp");
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('添加失败！');window.location='deptFindAllServlet'</script>");
+            out.flush();
+            out.close();
         }
     }
 }

@@ -13,7 +13,7 @@ public interface ordinaryDao {
 
     ArrayList<Job> ordFindJobAll();//岗位
 
-    boolean miMaUpdate(String psd);//员工修改密码
+    boolean miMaUpdate(String psd, String name);//员工修改密码
 
     ArrayList<ordUser> ordPsdFindAll();
 

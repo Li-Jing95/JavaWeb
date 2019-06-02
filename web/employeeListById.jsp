@@ -69,7 +69,7 @@
                             <td>
                                 <select name="education" value="${u.education}" class="loginname">
                                     <option value="专科" <c:if test="${'专科' eq u.education}">selected</c:if>>专科</option>
-                                    <option value="本科" <c:if test="${'本科' eq u.education}">selected</c:if>>专科</option>
+                                    <option value="本科" <c:if test="${'本科' eq u.education}">selected</c:if>>本科</option>
                                     <option value="研究生" <c:if test="${'研究生' eq u.education}">selected</c:if>>研究生
                                     </option>
                                 </select>

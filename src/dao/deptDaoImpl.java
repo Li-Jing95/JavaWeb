@@ -15,11 +15,11 @@ public class deptDaoImpl implements deptDao {
         JDBC.getCon();
         String s = "insert into dept_inf(name,remark)" + " values(" +
                 "'" + obj.getName() + "','" + obj.getRemark() + "')";
-
         int i = JDBC.addUpdDel(s);
         if (i > 0) {
             flag = true;
         }
+        System.out.println(i);
         JDBC.Close();
         return flag;
     }

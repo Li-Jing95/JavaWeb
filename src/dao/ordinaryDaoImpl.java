@@ -71,10 +71,10 @@ public class ordinaryDaoImpl implements ordinaryDao {
     }
 
     @Override
-    public boolean miMaUpdate(String psd) {
+    public boolean miMaUpdate(String psd, String name) {
         boolean flag = false;
         JDBC.getCon();
-        String sql = "update orduser_inf set password='" + psd + "'";
+        String sql = "update orduser_inf set password='" + psd + "' where loginname='" + name + "'";
         int i = JDBC.addUpdDel(sql);
         if (i > 0) {
             flag = true;
@@ -112,7 +112,6 @@ public class ordinaryDaoImpl implements ordinaryDao {
                 "',password='" + password +
                 "' where id='" + loginid + "'";
         int i = JDBC.addUpdDel(sql);
-        System.out.println(i);
         if (i > 0) {
             flag = true;
         }

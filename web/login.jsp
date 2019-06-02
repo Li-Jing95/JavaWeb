@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>登录</title>
+    <title>管理员登录</title>
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
 

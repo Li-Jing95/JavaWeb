@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="utf-8"/>
+    <title>管理员操作界面</title>
     <link href="css/head.css" rel="stylesheet" type="text/css">
     <link href="css/table.css" rel="stylesheet" type="text/css">
     <link href="css/iconfont.css" rel="stylesheet" type="text/css">

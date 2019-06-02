@@ -2,6 +2,7 @@ package dao;
 
 import domain.Job;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public interface jobDao {
@@ -13,7 +14,7 @@ public interface jobDao {
 
     ArrayList<Job> findJobAll();//查
 
-    ArrayList<Job> findJobName(String name);//通过部门名字查找
+    ArrayList<Job> findJobName(String name) throws IOException;//通过部门名字查找
 
     ArrayList<Job> findNameAll();
 

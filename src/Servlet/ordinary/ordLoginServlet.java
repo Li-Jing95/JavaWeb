@@ -33,7 +33,7 @@ public class ordLoginServlet extends HttpServlet {
         } else {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('用户名和密码错误，请重新输入！');window.location='login.jsp'</script>");
+            out.print("<script language='javascript'>alert('用户名和密码错误，请重新输入！');window.location='ordLogin.jsp'</script>");
             out.flush();
             out.close();
         }

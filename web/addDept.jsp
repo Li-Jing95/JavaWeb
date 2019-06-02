@@ -21,7 +21,7 @@
                     <!--登录名-->
                     <tr>
                         <td align="center" class="submit">部门名称</td>
-                        <td><input type="text" name="name" class="loginname" required="required"></td>
+                        <td><input type="text" name="name" class="loginname"></td>
                     </tr>
                     <!--描述-->
                     <tr>

@@ -40,7 +40,11 @@ public class jobRegisterServlet extends HttpServlet {
             out.flush();
             out.close();
         } else {
-            response.sendRedirect("addJob.jsp");
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('添加失败！');window.location='jobFindAllServlet'</script>");
+            out.flush();
+            out.close();
         }
     }
 }

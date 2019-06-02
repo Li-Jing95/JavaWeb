@@ -36,7 +36,6 @@ public class employeeAddOrdUserServlet extends HttpServlet {
             out.flush();
             out.close();
         } else {
-
             if (employeeDao.idAdd(id)) {
                 response.setContentType("text/html;charset=utf-8");
                 PrintWriter out = response.getWriter();

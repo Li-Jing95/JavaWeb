@@ -385,4 +385,22 @@ public class employeeDaoImpl implements employeeDao {
         }
         return list;
     }
+
+    @Override
+    public boolean isOrNotTel(String tel) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            //ResultSet rs = JDBC.selectSql("SELECT loginname FROM orduser_inf WHERE loginname='201917'");
+            ResultSet rs = JDBC.selectSql("select tel from employee_inf where tel='" + tel + "'");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
 }

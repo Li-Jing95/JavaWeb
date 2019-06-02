@@ -36,4 +36,6 @@ public interface employeeDao {
     boolean idAdd(int id);//入库
 
     ArrayList<Employee> findMyInfById(int id);//通过登录名查找自己信息
+
+    boolean isOrNotTel(String tel);//添加信息前查看数据库中的电话是否已经存在
 }

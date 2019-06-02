@@ -52,15 +52,23 @@ public class employeeRegisterServlet extends HttpServlet {
 
         //将获取到的数据与数据库的数据进行判断
         employeeDao employeeDao = new employeeDaoImpl();
-
-        if (employeeDao.EmployeeAdd(employeeobj)) {
+        if (employeeDao.isOrNotTel(tel)) {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('添加成功！');window.location='employeeFindAllServlet'</script>");
+            out.print("<script language='javascript'>alert('该用户手机号错误，请勿重复操作！');window.location='addEmployee.jsp'</script>");
             out.flush();
             out.close();
         } else {
-            response.sendRedirect("addEmployee.jsp");
+
+            if (employeeDao.EmployeeAdd(employeeobj)) {
+                response.setContentType("text/html;charset=utf-8");
+                PrintWriter out = response.getWriter();
+                out.print("<script language='javascript'>alert('添加成功！');window.location='employeeFindAllServlet'</script>");
+                out.flush();
+                out.close();
+            } else {
+                response.sendRedirect("addEmployee.jsp");
+            }
         }
     }
 }

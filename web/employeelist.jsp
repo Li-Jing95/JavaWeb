@@ -8,7 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-
+<script type="text/javascript">
+    function fun3() {
+        if (confirm("是否删除此员工？")) {
+            location.href = 'employeelist.jsp';
+        } else {
+            return false;
+        }
+    }
+</script>
 <body>
 <%@ include file="public.jsp" %>
 <div id="section">
@@ -45,23 +53,36 @@
             <c:forEach var="u" items="${findall}">
                 <%--<form action="employeeUpdateServlet" method="post">--%>
                 <tr>
-                    <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.name}" name="name" readonly="readonly" size="1"></td>
-                    <td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="1"></td>
-                    <td><input type="text" value="${u.nation}" name="nation" readonly="readonly" size="1"></td>
-                    <td><input type="text" value="${u.polic}" name="polic" readonly="readonly" size="2"></td>
-                    <td><input type="text" value="${u.born}" name="born" readonly="readonly" size="5"></td>
-                    <td><input type="text" value="${u.tel}" name="tel" readonly="readonly" size="8"></td>
-                    <td><input type="text" value="${u.email}" name="email" readonly="readonly" size="10"></td>
-                    <td><input type="text" value="${u.education}" name="education" readonly="readonly" size="2">
-                    </td>
-                    <td><input type="text" value="${u.card_id}" name="card_id" readonly="readonly" size="12"></td>
-                    <td><input type="text" value="${u.dept}" name="dept" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.job}" name="job" readonly="readonly" size="5"></td>
-                    <td><input type="text" value="${u.createdate}" readonly="readonly" name="createdate" size="5">
-                    </td>
+                        <%--<td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.name}" name="name" readonly="readonly" size="1"></td>--%>
+                        <%--<td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="1"></td>--%>
+                        <%--<td><input type="text" value="${u.nation}" name="nation" readonly="readonly" size="1"></td>--%>
+                        <%--<td><input type="text" value="${u.polic}" name="polic" readonly="readonly" size="2"></td>--%>
+                        <%--<td><input type="text" value="${u.born}" name="born" readonly="readonly" size="5"></td>--%>
+                        <%--<td><input type="text" value="${u.tel}" name="tel" readonly="readonly" size="8"></td>--%>
+                        <%--<td><input type="text" value="${u.email}" name="email" readonly="readonly" size="10"></td>--%>
+                        <%--<td><input type="text" value="${u.education}" name="education" readonly="readonly" size="2">--%>
+                        <%--</td>--%>
+                        <%--<td><input type="text" value="${u.card_id}" name="card_id" readonly="readonly" size="12"></td>--%>
+                        <%--<td><input type="text" value="${u.dept}" name="dept" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.job}" name="job" readonly="readonly" size="5"></td>--%>
+                        <%--<td><input type="text" value="${u.createdate}" readonly="readonly" name="createdate" size="5">--%>
+                        <%--</td>--%>
+                    <td align="center" valign="center">${u.id}</td>
+                    <td align="center" valign="center">${u.name}</td>
+                    <td align="center" valign="center">${u.sex}</td>
+                    <td align="center" valign="center">${u.nation}</td>
+                    <td align="center" valign="center">${u.polic}</td>
+                    <td align="center" valign="center">${u.born}</td>
+                    <td align="center" valign="center">${u.tel}</td>
+                    <td align="center" valign="center">${u.email}</td>
+                    <td align="center" valign="center">${u.education}</td>
+                    <td align="center" valign="center">${u.card_id}</td>
+                    <td align="center" valign="center">${u.dept}</td>
+                    <td align="center" valign="center">${u.job}</td>
+                    <td align="center" valign="center">${u.createdate}</td>
                     <td>
-                        <a href="employeeDeleteServlet?id=${u.id}">删除</a>
+                        <a href="employeeDeleteServlet?id=${u.id}" onclick="fun3()">删除</a>
                         <a href="employeeListByIdServlet?id=${u.id}">修改</a>
                             <%--<input type="submit" value="更新"/>--%>
                         <a href="employeeChangeJobServlet?id=${u.id}">调岗</a>

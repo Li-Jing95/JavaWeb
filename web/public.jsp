@@ -16,8 +16,6 @@
         src="<%=request.getContextPath() %>/My97DatePicker/WdatePicker.js">
 </script>
 <script src="js/jQuery.main.js"></script>
-
-
 <script type="text/javascript">
     function fun1() {
         if (confirm("是否退出此系统？")) {

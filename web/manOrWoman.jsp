@@ -17,13 +17,15 @@
     <center>
         <table class="gridtable">
             <tr>
-                <th>性别</th>
-                <th>比例(百分比)</th>
+                <th width="200px" height="50px">性别</th>
+                <th width="200px" height="50px">比例(百分比)</th>
             </tr>
             <c:forEach var="u" items="${findall}">
                 <tr>
-                    <td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="5"></td>
-                    <td><input type="text" value="${u.count}" name="count" readonly="readonly" size="10"></td>
+                        <%--<td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="5"></td>--%>
+                    <td align="center" valign="center">${u.sex}</td>
+                        <%--<td><input type="text" value="${u.count}" name="count" readonly="readonly" size="10">--%>
+                    <td align="center" valign="center">${u.count}</td>
                 </tr>
             </c:forEach>
         </table>

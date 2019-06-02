@@ -23,13 +23,13 @@ public class Employee {
 
     private int sum; //计算应发薪资
 
-    private int count;//男女比统计值
+    private float count;//男女比统计值、学历层次、政治水平
 
-    public int getCount() {
+    public float getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(float count) {
         this.count = count;
     }
 

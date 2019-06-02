@@ -213,7 +213,7 @@ public class employeeDaoImpl implements employeeDao {
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setSex(rs.getString("sex"));
-                employeeobj.setCount(rs.getInt("count"));
+                employeeobj.setCount(rs.getFloat("count"));
                 list.add(employeeobj);
             }
             JDBC.Close();
@@ -235,7 +235,7 @@ public class employeeDaoImpl implements employeeDao {
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setEducation(rs.getString("education"));
-                employeeobj.setCount(rs.getInt("count"));
+                employeeobj.setCount(rs.getFloat("count"));
                 list.add(employeeobj);
             }
             JDBC.Close();

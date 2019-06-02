@@ -52,7 +52,7 @@
     <div class="select">
         <center>
             <h3>添加信息</h3>
-            <form action="employeeRegisterServlet" method="post">
+            <form action="employeeRegisterServlet" method="post" target="test">
                 <table>
                     <tr>
                         <td align="center" class="submit">姓名</td>
@@ -92,7 +92,7 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">邮箱</td>
-                        <td><input type="text" name="email" class="loginname"></td>
+                        <td><input type="email" name="email" class="loginname"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">学历</td>
@@ -152,6 +152,7 @@
                     </div>
                 </tr>
             </form>
+            <iframe name="test" style="display:none"></iframe>
         </center>
     </div>
 </div>

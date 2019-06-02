@@ -74,7 +74,23 @@ public class deptDaoImpl implements deptDao {
     }
 
     @Override
-    public ArrayList<Dept> findDeptByName(String name) {
+    public boolean findDeptByName(String name) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("select id,`name`,remark from dept_inf where name='" + name + "'");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    @Override
+    public ArrayList<Dept> findDeptName(String name) {
         ArrayList<Dept> listdeptname = new ArrayList<>();
         try {
             JDBC.getCon();

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 @WebServlet("/ordDeptSelectServlet")
@@ -23,8 +24,16 @@ public class ordDeptSelectServlet extends HttpServlet {
         String name = request.getParameter("name");
 
         deptDao deptDao = new deptDaoImpl();
-        ArrayList<Dept> list = deptDao.findDeptByName(name);
-        request.setAttribute("findall", list);
-        request.getRequestDispatcher("/ordDeptList.jsp").forward(request, response);
+        if (deptDao.findDeptByName(name)) {
+            ArrayList<Dept> list = deptDao.findDeptName(name);
+            request.setAttribute("findall", list);
+            request.getRequestDispatcher("/ordDeptList.jsp").forward(request, response);
+        } else {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('查询数据为空！');window.location='ordDeptFindAllServlet'</script>");
+            out.flush();
+            out.close();
+        }
     }
 }

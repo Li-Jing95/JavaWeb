@@ -41,7 +41,9 @@ public class employeeDaoImpl implements employeeDao {
     public boolean EmployeeDelete(int id) {
         boolean flag = false;
         JDBC.getCon();
-        String sql = "delete from employee_inf where id='" + id + "'";
+//        String sql = "delete from employee_inf where id='" + id + "'";
+        String sql = "DELETE employee_inf ,orduser_inf FROM employee_inf ,orduser_inf  " +
+                "WHERE employee_inf.id=orduser_inf.loginname AND employee_inf.id='" + id + "';";
         int i = JDBC.addUpdDel(sql);
         if (i > 0) {
             flag = true;

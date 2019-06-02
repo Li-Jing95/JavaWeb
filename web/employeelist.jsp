@@ -9,13 +9,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <script type="text/javascript">
-    function fun3() {
-        if (confirm("是否删除此员工？")) {
-            location.href = 'employeelist.jsp';
-        } else {
-            return false;
+    // function fun() {
+    //     if (confirm("是否删除此员工？")) {
+    //         location.href = 'employeelist.jsp';
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    function fun(e) {
+        if (event.srcElement.outerText == "删除") {
+            event.returnValue = confirm("删除是不可恢复的，你确认要删除吗？");
         }
     }
+
+    document.onclick = fun;
 </script>
 <body>
 <%@ include file="public.jsp" %>
@@ -82,7 +90,7 @@
                     <td align="center" valign="center">${u.job}</td>
                     <td align="center" valign="center">${u.createdate}</td>
                     <td>
-                        <a href="employeeDeleteServlet?id=${u.id}" onclick="fun3()">删除</a>
+                        <a href="employeeDeleteServlet?id=${u.id}" onclick="fun">删除</a>
                         <a href="employeeListByIdServlet?id=${u.id}">修改</a>
                             <%--<input type="submit" value="更新"/>--%>
                         <a href="employeeChangeJobServlet?id=${u.id}">调岗</a>

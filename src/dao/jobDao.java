@@ -5,6 +5,8 @@ import domain.Job;
 import java.util.ArrayList;
 
 public interface jobDao {
+    boolean jobAddByName(String name);//添加岗位之前先查看数据库中时候存在（经理岗位只能有一个）
+
     boolean JobAdd(Job deptobj);//增
 
     boolean JobDelete(int id);//删
@@ -13,9 +15,9 @@ public interface jobDao {
 
     ArrayList<Job> findJobAll();//查
 
-    ArrayList<Job> findJobName(String name);
+    ArrayList<Job> findJobName(String name);//通过查找岗位名显示数据
 
-    boolean findJobByName(String name);//通过岗位名字查找
+    boolean findJobByName(String name);//通过岗位名字查找数据库中是否存在
 
     ArrayList<Job> findNameAll();
 

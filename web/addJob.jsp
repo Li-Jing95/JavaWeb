@@ -12,8 +12,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<body>
+<script type="text/javascript">
+    function fun() {
+        var de = document.getElementById("deptid").value;
+        if (de == "") {
+            alert("请选择部门");
+        }
+    }
 
+    function fun1() {
+
+    }
+</script>
+<body>
 <%@ include file="public.jsp" %>
 <div id="section">
     <div class="select">
@@ -26,8 +37,8 @@
                     <tr>
                         <td align="center" class="submit">选择部门</td>
                         <td>
-                            <select name="deptid" class="loginname">
-                                <option>请选择</option>
+                            <select name="deptid" class="loginname" id="deptid">
+                                <option value="">请选择</option>
                                 <%
                                     deptDao deptDao = new deptDaoImpl();
                                     ArrayList<Dept> list = deptDao.findNameAll();
@@ -44,11 +55,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" class="submit">职位名称</td>
-                        <td><input type="text" name="name" class="loginname" required="required"></td>
+                        <td align="center" class="submit">岗位名称</td>
+                        <td><input type="text" name="name" class="loginname" onblur="fun()" required="required"></td>
                     </tr>
                     <tr>
-                        <td align="center" class="submit">职位描述</td>
+                        <td align="center" class="submit">岗位描述</td>
                         <td><input type="text" name="remark" class="loginname"></td>
                     </tr>
                 </table>

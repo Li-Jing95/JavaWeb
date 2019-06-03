@@ -33,6 +33,13 @@ public class jobRegisterServlet extends HttpServlet {
         //将获取到的数据与数据库的数据进行判断
         jobDao jobDao = new jobDaoImpl();
 
+//        if (jobDao.jobAddByName(lname)) {
+//            response.setContentType("text/html;charset=utf-8");
+//            PrintWriter out = response.getWriter();
+//            out.print("<script language='javascript'>alert('此岗位已存在员工，请勿重新操作！');window.location='addJob.jsp'</script>");
+//            out.flush();
+//            out.close();
+//        } else {
         if (jobDao.JobAdd(jobobj)) {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
@@ -45,6 +52,7 @@ public class jobRegisterServlet extends HttpServlet {
             out.print("<script language='javascript'>alert('添加失败！');window.location='jobFindAllServlet'</script>");
             out.flush();
             out.close();
+//            }
         }
     }
 }

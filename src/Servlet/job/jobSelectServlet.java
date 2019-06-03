@@ -22,7 +22,6 @@ public class jobSelectServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         String name = request.getParameter("name");
-
         jobDao jobDao = new jobDaoImpl();
         if (jobDao.findJobByName(name)) {
             ArrayList<Job> list = jobDao.findJobName(name);

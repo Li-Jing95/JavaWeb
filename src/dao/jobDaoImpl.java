@@ -10,6 +10,22 @@ import java.util.ArrayList;
 public class jobDaoImpl implements jobDao {
 
     @Override
+    public boolean jobAddByName(String name) {
+        boolean flag = false;
+        try {
+            JDBC.getCon();
+            ResultSet rs = JDBC.selectSql("SELECT * FROM job_inf WHERE job_inf.`name` LIKE'" + name + "';");
+            while (rs.next()) {
+                flag = true;
+            }
+            JDBC.Close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    @Override
     public boolean JobAdd(Job obj) {
         boolean flag = false;
         JDBC.getCon();
@@ -79,7 +95,8 @@ public class jobDaoImpl implements jobDao {
         boolean flag = false;
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name='" + name + "'");
+//            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name='" + name + "'");
+            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 flag = true;
             }
@@ -96,7 +113,8 @@ public class jobDaoImpl implements jobDao {
         ArrayList<Job> listjobname = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name='" + name + "'");
+//            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name='" + name + "'");
+            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 Job jobobj = new Job();
                 jobobj.setId(rs.getInt("id"));

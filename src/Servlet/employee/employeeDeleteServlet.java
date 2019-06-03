@@ -30,6 +30,12 @@ public class employeeDeleteServlet extends HttpServlet {
             out.print("<script language='javascript'>alert('删除成功！');window.location='employeeFindAllServlet'</script>");
             out.flush();
             out.close();
+        } else if (employeeDao.employeeDeleteById(employeeId)) {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.print("<script language='javascript'>alert('删除成功！');window.location='employeeFindAllServlet'</script>");
+            out.flush();
+            out.close();
         } else {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();

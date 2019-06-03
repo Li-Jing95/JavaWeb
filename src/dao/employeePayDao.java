@@ -6,4 +6,6 @@ import java.util.ArrayList;
 
 public interface employeePayDao {
         ArrayList<Employee> findEmployeePayAll();//查员工工资
+
+    ArrayList<Employee> findEmployeePayName(String name);
 }

@@ -16,10 +16,19 @@
 <body>
 <%@ include file="public.jsp" %>
 <div id="section">
+    <div class="select">
+        <center>
+            <br><br>
+            <form action="employeePayByNameSelectServlet" method="post">
+                <input type="text" name="name" placeholder="请输入要查找的员工" class="loginname">
+                <input type="submit" value="搜索" class="submit">
+            </form>
+        </center>
+    </div>
     <br><br>
     <!--显示列表-->
     <center>
-        <table class="gridtable">
+        <table class="gridtable" id="t_student">
             <tr>
                 <th>工号</th>
                 <th>姓名</th>
@@ -35,16 +44,26 @@
             </tr>
             <c:forEach var="u" items="${findall}">
                 <tr>
-                    <td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.name}" name="name" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.tel}" name="tel" readonly="readonly" size="12"></td>
-                    <td><input type="text" value="${u.email}" name="email" readonly="readonly" size="12"></td>
-                    <td><input type="text" value="${u.dept}" name="dept" readonly="readonly" size="7"></td>
-                    <td><input type="text" value="${u.job}" name="job" readonly="readonly" size="7"></td>
-                    <td><input type="text" value="${u.localpay}" name="localpay" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.jobpay}" name="jobpay" readonly="readonly" size="3"></td>
-                    <td><input type="text" value="${u.sum}" name="sum" readonly="readonly" size="3"></td>
+                        <%--<td><input type="text" value="${u.id}" name="id" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.name}" name="name" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.sex}" name="sex" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.tel}" name="tel" readonly="readonly" size="12"></td>--%>
+                        <%--<td><input type="text" value="${u.email}" name="email" readonly="readonly" size="12"></td>--%>
+                        <%--<td><input type="text" value="${u.dept}" name="dept" readonly="readonly" size="7"></td>--%>
+                        <%--<td><input type="text" value="${u.job}" name="job" readonly="readonly" size="7"></td>--%>
+                        <%--<td><input type="text" value="${u.localpay}" name="localpay" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.jobpay}" name="jobpay" readonly="readonly" size="3"></td>--%>
+                        <%--<td><input type="text" value="${u.sum}" name="sum" readonly="readonly" size="3"></td>--%>
+                    <td align="center" valign="center">${u.id}</td>
+                    <td align="center" valign="center">${u.name}</td>
+                    <td align="center" valign="center">${u.sex}</td>
+                    <td align="center" valign="center">${u.tel}</td>
+                    <td align="center" valign="center">${u.email}</td>
+                    <td align="center" valign="center">${u.dept}</td>
+                    <td align="center" valign="center">${u.job}</td>
+                    <td align="center" valign="center">${u.localpay}</td>
+                    <td align="center" valign="center">${u.jobpay}</td>
+                    <td align="center" valign="center">${u.sum}</td>
                     <td>
                         <a href="employeePayChangeByIdServlet?id=${u.id}">查看实发薪资</a>
                     </td>
@@ -52,6 +71,73 @@
             </c:forEach>
         </table>
     </center>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--这有空格不能删除-->
+    <center>
+        <div class="gridItem">
+            <!--style="padding: 5px; width: 250px; float: left; text-align: left; height: 20px; font-size: 15px; margin: 0 auto;"-->
+            共有<span id="spanTotalInfor"></span>条记录
+            当前第<span id="spanPageNum"></span>页
+            共<span id="spanTotalPage"></span>页
+            <%--</div>--%>
+            <%--<div class="gridItem">--%>
+            <!--style="margin-left:50px;  padding: 5px; width: 400px; float: left; text-align: center; height: 20px; vertical-align: middle; font-size: 15px;"-->
+            <span id="spanFirst">首页</span>
+            <span id="spanPre">上一页</span>
+            <span id="spanInput" style="margin: 0px; padding: 0px 0px 4px 0px; height:100%; ">
+                第<input id="Text1" type="text" class="TextBox" onkeyup="changepage()"
+                        style="height:20px; text-align: center;width:50px"/>页
+            </span>
+            <span id="spanNext">下一页</span>
+            <span id="spanLast">尾页</span>
+        </div>
+    </center>
 </div>
+<script type="text/javascript">
+    var theTable = document.getElementById("t_student");
+    var txtValue = document.getElementById("Text1").value;
+
+    function changepage() {
+        var txtValue2 = document.getElementById("Text1").value;
+        if (txtValue != txtValue2) {
+            if (txtValue2 > pageCount()) {
+
+            }
+            else if (txtValue2 <= 0) {
+
+            }
+            else if (txtValue2 == 1) {
+                first();
+            }
+            else if (txtValue2 == pageCount()) {
+                last();
+            }
+            else {
+                hideTable();//隐藏所有行
+                page = txtValue2;
+                pageNum2.value = page;
+
+                currentRow = pageSize * page;
+                maxRow = currentRow - pageSize;
+                if (currentRow > numberRowsInTable) currentRow = numberRowsInTable;
+                for (var i = maxRow; i < currentRow; i++) {
+                    theTable.rows[i].style.display = '';
+                }
+                if (maxRow == 0) {
+                    preText();
+                    firstText();
+                }
+                showPage();
+                nextLink();
+                lastLink();
+                preLink();
+                firstLink();
+            }
+
+            txtValue = txtValue2;
+        }
+    }
+
+</script>
+<script type="text/javascript" src="js/Pagging.js"></script>
 </body>
 </html>

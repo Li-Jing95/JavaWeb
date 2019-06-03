@@ -25,8 +25,8 @@
 <script type="text/javascript">
     function chMobilePhone(src) {
         if (/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(src)) {
-            alert('手机号码规范');
-            // return true;
+            // alert('手机号码规范');
+            // return tru/e;
 
         } else {
             alert("手机号码不规范");
@@ -42,6 +42,25 @@
         else {
             alert("手机号位数不对,请重新输入");
             document.getElementById('tel').value = "";
+        }
+    }
+
+    function isCardNo(card) {
+        if (/(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(card)) {
+            // alert("身份证号规范");
+        } else {
+            alert("身份证号不规范");
+            document.getElementById('card_id').value = "";
+        }
+    }
+
+    function checkCard_id() {
+        var c = document.getElementById('card_id').value;
+        if (c.length == 18) {
+            isCardNo(c);
+        } else {
+            alert("身份证号位数不对，请重新输入");
+            document.getElementById('card_id').value = "";
         }
     }
 </script>
@@ -84,7 +103,7 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">出生日期</td>
-                        <td><input type="text" name="born" class="loginname"></td>
+                        <td><input type="date" name="born" class="loginname"></td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">电话</td>
@@ -107,7 +126,8 @@
                     </tr>
                     <tr>
                         <td align="center" class="submit">身份证号</td>
-                        <td><input type="text" name="card_id" class="loginname"></td>
+                        <td><input type="text" name="card_id" class="loginname" id="card_id" onblur="checkCard_id()">
+                        </td>
                     </tr>
                     <tr>
                         <td align="center" class="submit">部门</td>

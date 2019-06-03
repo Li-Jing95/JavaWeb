@@ -7,7 +7,9 @@ import java.util.ArrayList;
 public interface employeeDao {
     boolean EmployeeAdd(Employee deptobj);//增
 
-    boolean EmployeeDelete(int id);//删
+    boolean EmployeeDelete(int id);//删 删除员工信息也删除账号密码信息
+
+    boolean employeeDeleteById(int id);//删除员工信息
 
     boolean EmployeeUpdate(String name, String sex, String nation, String polic, String born, String tel, String email, String education, String card_id, String createdate, int id);//改
 
@@ -39,5 +41,5 @@ public interface employeeDao {
 
     ArrayList<Employee> findMyInfById(int id);//通过登录名查找自己信息
 
-    boolean isOrNotTel(String tel);//添加信息前查看数据库中的电话是否已经存在
+    boolean isOrNotTel(String tel, String card_id);//添加信息前查看数据库中的电话是否已经存在
 }

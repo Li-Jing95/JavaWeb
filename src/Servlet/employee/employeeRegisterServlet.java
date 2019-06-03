@@ -52,10 +52,10 @@ public class employeeRegisterServlet extends HttpServlet {
 
         //将获取到的数据与数据库的数据进行判断
         employeeDao employeeDao = new employeeDaoImpl();
-        if (employeeDao.isOrNotTel(tel)) {
+        if (employeeDao.isOrNotTel(tel, card_id)) {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.print("<script language='javascript'>alert('该用户手机号错误，请勿重复操作！');window.location='addEmployee.jsp'</script>");
+            out.print("<script language='javascript'>alert('手机号/身份证号重复，请勿重复操作！');window.location='addEmployee.jsp'</script>");
             out.flush();
             out.close();
         } else {

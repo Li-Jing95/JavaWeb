@@ -53,6 +53,19 @@ public class employeeDaoImpl implements employeeDao {
     }
 
     @Override
+    public boolean employeeDeleteById(int id) {
+        boolean flag = false;
+        JDBC.getCon();
+        String sql = "delete from employee_inf where id='" + id + "'";
+        int i = JDBC.addUpdDel(sql);
+        if (i > 0) {
+            flag = true;
+        }
+        JDBC.Close();
+        return flag;
+    }
+
+    @Override
     public boolean EmployeeUpdate(String name, String sex, String nation, String polic, String born, String tel, String email, String education, String card_id, String createdate, int id) {
         boolean flag = false;
         JDBC.getCon();
@@ -408,12 +421,12 @@ public class employeeDaoImpl implements employeeDao {
     }
 
     @Override
-    public boolean isOrNotTel(String tel) {
+    public boolean isOrNotTel(String tel, String card_id) {
         boolean flag = false;
         try {
             JDBC.getCon();
             //ResultSet rs = JDBC.selectSql("SELECT loginname FROM orduser_inf WHERE loginname='201917'");
-            ResultSet rs = JDBC.selectSql("select tel from employee_inf where tel='" + tel + "'");
+            ResultSet rs = JDBC.selectSql("select tel,card_id from employee_inf where tel='" + tel + "' OR card_id='" + card_id + "' ");
             while (rs.next()) {
                 flag = true;
             }

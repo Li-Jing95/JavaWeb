@@ -67,16 +67,16 @@
                         </tr>
                         <tr>
                             <td align="center" class="submit">五险一金</td>
-                            <td><input type="text" name="wuxian" id="wuxian" class="loginname"></td>
+                            <td><input type="text" name="wuxian" id="wuxian" class="loginname" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td align="center" class="submit">税（3%）</td>
-                            <td><input type="text" name="shuihou" id="shuihou" class="loginname">
+                            <td><input type="text" name="shuihou" id="shuihou" class="loginname" readonly="readonly">
                             </td>
                         </tr>
                         <tr>
                             <td align="center" class="submit">实发工资</td>
-                            <td><input type="text" name="realpay" id="realpay" class="loginname">
+                            <td><input type="text" name="realpay" id="realpay" class="loginname" readonly="readonly">
                             </td>
                         </tr>
                     </c:forEach>

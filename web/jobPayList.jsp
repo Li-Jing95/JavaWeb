@@ -20,7 +20,7 @@
         <center>
             <br><br>
             <form action="jobPaySelectServlet" method="post">
-                <input type="text" name="name" placeholder="请输入要查找的职位薪资" class="loginname">
+                <input type="text" name="name" placeholder="请输入要查找的岗位名称" class="loginname">
                 <input type="submit" value="搜索" class="submit">
             </form>
         </center>

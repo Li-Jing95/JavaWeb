@@ -129,7 +129,7 @@ public class employeeDaoImpl implements employeeDao {
             JDBC.getCon();
             ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate\n" +
                     "FROM employee_inf AS e , dept_inf AS d, job_inf AS j\n" +
-                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name`='" + name + "' ");
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name` like'%" + name + "%' ");
             while (rs.next()) {
                 flag = true;
             }
@@ -148,7 +148,7 @@ public class employeeDaoImpl implements employeeDao {
             JDBC.getCon();
             ResultSet rs = JDBC.selectSql("SELECT e.id,e.`name`,e.sex,e.nation,e.polic,e.born,e.tel,e.email,e.education,e.card_id,d.`name` AS dept,j.`name` AS job,e.createdate\n" +
                     "FROM employee_inf AS e , dept_inf AS d, job_inf AS j\n" +
-                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name`='" + name + "' ");
+                    "WHERE e.dept_id=d.id AND e.job_id=j.id AND e.`name` like'%" + name + "%' ");
             while (rs.next()) {
                 Employee employeeobj = new Employee();
                 employeeobj.setName(rs.getString("name"));

@@ -96,7 +96,7 @@ public class jobDaoImpl implements jobDao {
         try {
             JDBC.getCon();
 //            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name='" + name + "'");
-            ResultSet rs = JDBC.selectSql("select id,`name`,remark from job_inf where name like'%" + name + "%'");
+            ResultSet rs = JDBC.selectSql("select * from job_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 flag = true;
             }

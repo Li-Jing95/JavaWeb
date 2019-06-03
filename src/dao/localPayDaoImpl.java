@@ -52,7 +52,7 @@ public class localPayDaoImpl implements localPayDao {
         ArrayList<Dept> listdeptname = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("select * from dept_inf where name='" + name + "'");
+            ResultSet rs = JDBC.selectSql("select * from dept_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 Dept deptobj = new Dept();
                 deptobj.setId(rs.getInt("id"));

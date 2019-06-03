@@ -78,7 +78,7 @@ public class deptDaoImpl implements deptDao {
         boolean flag = false;
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("select id,`name`,remark from dept_inf where name='" + name + "'");
+            ResultSet rs = JDBC.selectSql("select * from dept_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 flag = true;
             }
@@ -94,7 +94,7 @@ public class deptDaoImpl implements deptDao {
         ArrayList<Dept> listdeptname = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("select id,`name`,remark from dept_inf where name='" + name + "'");
+            ResultSet rs = JDBC.selectSql("select id,`name`,remark from dept_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 Dept deptobj = new Dept();
                 deptobj.setId(rs.getInt("id"));

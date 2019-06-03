@@ -50,7 +50,7 @@ public class jobPayDaoImpl implements jobPayDao {
         ArrayList<Job> listjobname = new ArrayList<>();
         try {
             JDBC.getCon();
-            ResultSet rs = JDBC.selectSql("select * from job_inf where name='" + name + "'");
+            ResultSet rs = JDBC.selectSql("select * from job_inf where name like'%" + name + "%'");
             while (rs.next()) {
                 Job jobobj = new Job();
                 jobobj.setId(rs.getInt("id"));

@@ -54,7 +54,7 @@
                         </tr>
                         <tr>
                             <td align="center" class="submit">出生日期</td>
-                            <td><input type="text" value="${u.born}" name="born" class="loginname"></td>
+                            <td><input type="date" value="${u.born}" name="born" class="loginname"></td>
                         </tr>
                         <tr>
                             <td align="center" class="submit">电话</td>
